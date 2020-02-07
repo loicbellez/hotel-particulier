@@ -44,8 +44,13 @@
             <meta property="article:author" content="{{ site.url }}">
         {%- endblock -%}
 
-        {% set css %}{% include "css/styles.css" %}{% endset %}
-        <style>{{ css | cssmin | safe }}</style>
+        {% set css %}{% include "css/main.css" %}{% endset %}
+        <style amp-custom>{{ css | cssmin | safe }}</style>
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+        <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+        <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+        <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
 
         <script>document.documentElement.classList.remove('no-js');</script>
 
