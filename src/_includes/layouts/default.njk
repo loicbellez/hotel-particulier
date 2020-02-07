@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang }}" class="no-js">
+<!doctype html>
+<html ⚡ lang="{{ site.lang }}" class="no-js">
     <head>
         <title>
             {%- if title -%}
@@ -10,7 +10,6 @@
         </title>
         <meta name="description" content="{% block description %}{{ site.description }}{% endblock %}">
         <meta name="robots" content="index,follow">
-        <meta name="generator" content="Eleventy">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         {% if site.icon %}
@@ -54,26 +53,20 @@
         {{ codeinjection_head | safe if codeinjection_head }}
     </head>
     <body>
-        {% include "partials/icons.njk" %}
-        <div class="viewport">
-
-            <div class="viewport-top">
-                {% include "partials/header.njk" %}
-
-                <main class="site-main">
-                    <div class="container">
-                        {% block content %}
-                        {% endblock content %}
-                    </div>
-                </main>
+        {% include "partials/header.njk" %}
+        <main class="site-main">
+            <div class="container">
+                {% block content %}
+                {% endblock content %}
             </div>
+        </main>
+        {% include "partials/footer.njk" %}
 
-            <div class="viewport-bottom">
-                {% include "partials/footer.njk" %}
-            </div>
-
-            {{ site.codeinjection_foot | safe if site.codeinjection_foot }}
-            {{ codeinjection_foot | safe if codeinjection_foot }}
-        </div>
+        {{ site.codeinjection_foot | safe if site.codeinjection_foot }}
+        {{ codeinjection_foot | safe if codeinjection_foot }}
     </body>
+    <amp-install-serviceworker src="/sw.js"
+         data-iframe-src="install-sw.html"
+         layout="nodisplay">
+    </amp-install-serviceworker>
 </html>
