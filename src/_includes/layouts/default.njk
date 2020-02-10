@@ -1,11 +1,11 @@
 <!doctype html>
-<html ⚡ lang="{{ site.lang }}" class="no-js">
+<html ⚡ lang="{%- if lang -%} {{ lang }} {%- else -%} en {%- endif -%}">
     <head>
         <title>
             {%- if title -%}
                 {{ title }} – {{ site.title }}
             {%- else -%}
-                {{ site.title }} – {{ site.description }}
+                {{ site.title }}
             {%- endif -%}
         </title>
         <meta name="description" content="{% block description %}{{ site.description }}{% endblock %}">
@@ -46,13 +46,12 @@
 
         {% set css %}{% include "css/main.css" %}{% endset %}
         <style amp-custom>{{ css | cssmin | safe }}</style>
+        <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
         <script async src="https://cdn.ampproject.org/v0.js"></script>
         <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
         <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
         <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
         <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-
-        <script>document.documentElement.classList.remove('no-js');</script>
 
         {{ site.codeinjection_head | safe if site.codeinjection_head }}
         {{ codeinjection_head | safe if codeinjection_head }}
