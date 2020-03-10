@@ -1,10 +1,6 @@
 {% extends 'layouts/default.njk' %}
 
-{% for tag in tags %}
-    {% if tag is sameas '#fr' %}
-        {% set lang = 'fr' %}
-    {% endif %}
-{% endfor %}
+{% set lang = 'de' %}
 
 {% set title = post.title %}
 {% set codeinjection_head = post.codeinjection_head %}
