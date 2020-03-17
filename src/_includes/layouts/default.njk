@@ -11,10 +11,13 @@
         <meta name="description" content="{% block description %}{{ site.description }}{% endblock %}">
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="theme-color" content="#FFFFFF">
 
         {% if site.icon %}
             <link rel="shortcut icon" type="image/png" href="{{ site.icon }}"/>
         {% endif %}
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
         {%- block seo -%}
             <!--Twitter Card-->
@@ -44,6 +47,21 @@
             <meta property="article:author" content="{{ site.url }}">
         {%- endblock -%}
 
+        <link rel="manifest" href="/manifest.json">
+        <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+        <link rel="canonical" href="{{ site.url }}">
+        <link rel="amphtml" href="{{ site.url }}" />
+        <link rel="alternate" hreflang="en" href="{{ site.url }}" />
+        <link rel="alternate" hreflang="fr" href="{{ site.url }}/fr/" />
+        <link rel="alternate" hreflang="ar" href="{{ site.url }}/ar/" />
+        <link rel="alternate" hreflang="de" href="{{ site.url }}/de/" />
+        <link rel="alternate" hreflang="es" href="{{ site.url }}/es/" />
+        <link rel="alternate" hreflang="zn" href="{{ site.url }}/zn/" />
+        <link rel="alternate" hreflang="ru" href="{{ site.url }}/ru/" />
+        <link rel="alternate" hreflang="it" href="{{ site.url }}/it/" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,500&display=swap" rel="stylesheet">
+
         {% set css %}{% include "css/main.css" %}{% endset %}
         <style amp-custom>{{ css | cssmin | safe }}</style>
         <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
@@ -52,6 +70,7 @@
         <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
         <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
         <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+        <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
 
         {{ site.codeinjection_head | safe if site.codeinjection_head }}
         {{ codeinjection_head | safe if codeinjection_head }}
