@@ -22,16 +22,19 @@ const stripDomain = url => {
 };
 
 module.exports = function(config) {
-  // Minify HTML
-  config.addTransform("htmlmin", htmlMinTransform);
+  config.addPassthroughCopy("src/assets");
 
+    // Minify HTML
+  if (process.env.ELEVENTY_ENV != 'dev') {
+    config.addTransform("htmlmin", htmlMinTransform);
+  }
   // Assist RSS feed template
   config.addPlugin(pluginRSS);
 
   // Apply performance attributes to images
-  config.addPlugin(lazyImages, {
-    cacheFile: ""
-  });
+  // config.addPlugin(lazyImages, {
+  //   cacheFile: ""
+  // });
 
   // Copy images over from Ghost
   config.addPlugin(localImages, {
@@ -43,9 +46,11 @@ module.exports = function(config) {
   });
 
   // Inline CSS
-  config.addFilter("cssmin", code => {
-    return new cleanCSS({}).minify(code).styles;
-  });
+  if (process.env.ELEVENTY_ENV != 'dev') {
+    config.addFilter("cssmin", code => {
+      return new cleanCSS({}).minify(code).styles;
+    });
+  }
 
   config.addFilter("getReadingTime", text => {
     const wordsPerMinute = 200;
@@ -99,7 +104,7 @@ module.exports = function(config) {
     collection.forEach(post => {
       post.url = stripDomain(post.url);
       post.primary_author.url = stripDomain(post.primary_author.url);
-      post.tags.map(tag => (tag.url = stripDomain(tag.url)));
+      post.tags = post.tags.map(tag => (tag.name));
 
       // Convert publish date into a Date object
       post.published_at = new Date(post.published_at);
@@ -107,7 +112,6 @@ module.exports = function(config) {
 
     // Bring featured post to the top of the list
     collection.sort((post, nextPost) => nextPost.featured - post.featured);
-
     return collection;
   });
 
