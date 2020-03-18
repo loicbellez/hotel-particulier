@@ -1,0 +1,174 @@
+<!doctype html>
+<html ⚡ lang="{%- if lang -%} {{ lang }} {%- else -%} en {%- endif -%}">
+    <head>
+        <title>
+            {%- if title -%}
+                {{ title }} – {{ site.title }}
+            {%- else -%}
+                {{ site.title }}
+            {%- endif -%}
+        </title>
+        <meta name="description" content="{% block description %}{{ site.description }}{% endblock %}">
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="theme-color" content="#FFFFFF">
+
+        {% if site.icon %}
+            <link rel="shortcut icon" type="image/png" href="{{ site.icon }}"/>
+        {% endif %}
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        {%- block seo -%}
+            <!--Twitter Card-->
+            <meta name="twitter:site" content="{{ site.twitter }}">
+            <meta name="twitter:creator" content="{{ site.twitter }}">
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:url" content="{{ site.url + page.url }}">
+            <meta name="twitter:title" content="{{ title + " – " + site.title if title else title }}">
+            <meta name="twitter:description" content="{{ site.description }}">
+            <meta name="twitter:image" content="{{ site.cover_image }}">
+
+            <!--Schema-->
+            <link rel="author" href="{{ site.url }}">
+            <link rel="publisher" href="{{ site.url }}">
+            <meta itemprop="name" content="{{ title + " – " + site.title if title else title }}">
+            <meta itemprop="description" content="{{ site.description }}">
+            <meta itemprop="image" content="{{ site.cover_image }}">
+
+            <!-- Facebook OpenGraph -->
+            <meta property="og:url" content="{{site.url + page.url}}">
+            <meta property="og:type" content="website">
+            <meta property="og:title" content="{{ title + " – " + site.title if title else title }}">
+            <meta property="og:image" content="{{ site.cover_image }}">
+            <meta property="og:description" content="{{ site.description }}">
+            <meta property="og:site_name" content="{{ site.title }}">
+            <meta property="og:locale" content="{{ site.lang }}">
+            <meta property="article:author" content="{{ site.url }}">
+        {%- endblock -%}
+
+        <link rel="manifest" href="/manifest.json">
+        <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+        <link rel="canonical" href="{{ site.url }}">
+        <link rel="amphtml" href="{{ site.url }}" />
+        <link rel="alternate" hreflang="en" href="{{ site.url }}" />
+        <link rel="alternate" hreflang="fr" href="{{ site.url }}/fr/" />
+        <link rel="alternate" hreflang="ar" href="{{ site.url }}/ar/" />
+        <link rel="alternate" hreflang="de" href="{{ site.url }}/de/" />
+        <link rel="alternate" hreflang="es" href="{{ site.url }}/es/" />
+        <link rel="alternate" hreflang="zn" href="{{ site.url }}/zn/" />
+        <link rel="alternate" hreflang="ru" href="{{ site.url }}/ru/" />
+        <link rel="alternate" hreflang="it" href="{{ site.url }}/it/" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,500&display=swap" rel="stylesheet">
+
+        {% set css %}{% include "css/main.css" %}{% endset %}
+        <style amp-custom>{{ css | cssmin | safe }}</style>
+        <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+        <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+        <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+        <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+        <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+
+        {{ site.codeinjection_head | safe if site.codeinjection_head }}
+        {{ codeinjection_head | safe if codeinjection_head }}
+    </head>
+    <body>
+        {% include "partials/header.njk" %}
+        <main>
+            <div class="overview">
+              <div class="container">
+                <h2>Welcome to Swene</h2>
+                <p class="emphasis">Swene is a virtual currency solutions provider that will fit all your needs from simple to advanced trading, secure storage, and crypto payment processing.</p>
+                <p>Our team of experts have built these solutions to facilitate and ease the purchase, sale, trade, acceptance and management of your virtual currencies. From beginners to experts and from businesses to individuals, our solutions have been designed to improve your ability to trade. Our tailored approach allows you to enhance your portfolio and increase your sales and stream of revenues.</p>
+              </div>
+            </div>
+            <div class="secure">
+              <div class="container">
+                <div class="col-100 col-md-50 img-container">
+                  <img alt="Swene - a secure platform to trade bitcoin and ethereum" src="/assets/img/secure.png">
+                </div>
+                <div class="col-100 col-md-50">
+                  <h2>Incredibly secure</h2>
+                  <p class="emphasis">Swene provides its users with a safe, decentralized, and trustless method to store and manage their cryptocurrencies in the form of non-custodial wallets.</p>
+                  <p>To ensure maximum security, the recovery passphrase is encrypted with multiple hashes and RSA encryption. The wallets are decentralized and can only be unilaterally accessed and managed by the users with their inital passphrase. A formal procedure to recover the passphrase is available in case a user loses or discards the passphrase.</p>
+                </div>
+              </div>
+            </div>
+            <div class="ui">
+              <div class="container">
+                <div class="col-100 col-md-50 content">
+                  <h2>Brilliant user interface</h2>
+                  <p class="emphasis">Swene is designed to give its users an optimized experience by offering them the best features currently available.</p>
+                  <p>Our user experience and user interface are continuously updated and tailored to accomodate and conform to the latest standards, technologies and aesthetics of the web.   </p>
+                </div>
+                <div class="col-100 col-md-50">
+                  <img alt="Swene, an easy-to-use, accessible and optimized user interface" src="/assets/img/screens.png" />
+                </div>
+              </div>
+            </div>
+            <div class="compliant">
+              <div class="container">
+                <div class="col-100 col-md-50">
+                  <img alt="Swene - compliant, registered and trusted" src="/assets/img/compliant.png" />
+                </div>
+                <div class="col-100 col-md-50 content">
+                  <h2>Fully compliant</h2>
+                  <p class="emphasis">Established in Estonia, Europe, Swene is fully registered and regulated in compliance with worldwide laws.</p>
+                  <p>Swene's main objective is to provide a regulated environment and a simple, free, complete and downloadable tax report</p>
+                </div>
+              </div>
+            </div>
+            <div class="get-started" id="signup">
+              <div class="container">
+                <h2>Get into cryptocurrencies now!</h2>
+                <h3 class="intro">Get started for free</h3>
+                <p>
+                  Open an individual or a professional account today to be the first to benefit from exclusive offers,<br />
+                  simply enter your email address below to open your account.
+                </p>
+              </div>
+              <div class="panel">
+                <h3>Almost there!</h3>
+                <p>You're 2 seconds away from opening your account by typing your email address!</p>
+
+                <form method="post" action-xhr="https://api.swene.io/v1/user/register" enctype='application/json'>
+                  <label for="account">
+                    Email address
+                  </label>
+                  <input type="text" placeholder="Your email address" id="account" name="data[email]" required/>
+                  <label for="account_newsletter">Subscribe to newsletter</label><input type="checkbox" id="account_newsletter" name="data[newsletter]"/>
+                  <input type="hidden" name="data[user]" value="true" />
+                  <div submit-success class="submit-success">
+                    <template type="amp-mustache">
+                      Thanks for signing up!
+                    </template>
+                  </div>
+                  <div submit-error class="submit-error">
+                    <template type="amp-mustache">
+                      This email address is already registered.
+                    </template>
+                  </div>
+                  <button class="btn btn-primary">
+                    Get started <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="chevron-right"><path fill="currentColor" d="M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z"></path></svg>
+                  </button>
+                </form>
+              </div>
+              <div class="container">
+                    {% block content %}
+                    {% endblock content %}
+              </div>
+            </div>
+        </main>
+        {% include "partials/footer.njk" %}
+
+        {{ site.codeinjection_foot | safe if site.codeinjection_foot }}
+        {{ codeinjection_foot | safe if codeinjection_foot }}
+    </body>
+    <amp-install-serviceworker src="/sw.js"
+         data-iframe-src="install-sw.html"
+         layout="nodisplay">
+    </amp-install-serviceworker>
+</html>
