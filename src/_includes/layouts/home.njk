@@ -3,12 +3,12 @@
     <head>
         <title>
             {%- if title -%}
-                {{ title }} – {{ site.title }}
+              {{ title }} – {{ locale.headTitle }}
             {%- else -%}
-                {{ site.title }}
+              {{ locale.headTitle }}
             {%- endif -%}
         </title>
-        <meta name="description" content="{% block description %}{{ site.description }}{% endblock %}">
+        <meta name="description" content="{% block description %}{{ locale.metaDescription }}{% endblock %}">
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="theme-color" content="#FFFFFF">
@@ -32,8 +32,8 @@
             <!--Schema-->
             <link rel="author" href="{{ site.url }}">
             <link rel="publisher" href="{{ site.url }}">
-            <meta itemprop="name" content="{{ title + " – " + site.title if title else title }}">
-            <meta itemprop="description" content="{{ site.description }}">
+            <meta itemprop="name" content="{{ title + " – " + locale.headTitle if title else title }}">
+            <meta itemprop="description" content="{{ locale.metaDescription }}">
             <meta itemprop="image" content="{{ site.cover_image }}">
 
             <!-- Facebook OpenGraph -->
@@ -80,79 +80,76 @@
         <main>
             <div class="overview">
               <div class="container">
-                <h2>Welcome to Swene</h2>
-                <p class="emphasis">Swene is a virtual currency solutions provider that will fit all your needs from simple to advanced trading, secure storage, and crypto payment processing.</p>
-                <p>Our team of experts have built these solutions to facilitate and ease the purchase, sale, trade, acceptance and management of your virtual currencies. From beginners to experts and from businesses to individuals, our solutions have been designed to improve your ability to trade. Our tailored approach allows you to enhance your portfolio and increase your sales and stream of revenues.</p>
+                <h2>{{ locale.overviewTitle }}</h2>
+                <p class="emphasis">{{ locale.overviewEmphasis }}</p>
+                <p>{{ locale.overviewDescription }}</p>
               </div>
             </div>
             <div class="secure">
               <div class="container">
                 <div class="col-100 col-md-50 img-container">
-                  <img alt="Swene - a secure platform to trade bitcoin and ethereum" src="/assets/img/secure.png">
+                  <img alt="{{ locale.secureImageAlt }}" src="/assets/img/secure.png">
                 </div>
                 <div class="col-100 col-md-50">
-                  <h2>Incredibly secure</h2>
-                  <p class="emphasis">Swene provides its users with a safe, decentralized, and trustless method to store and manage their cryptocurrencies in the form of non-custodial wallets.</p>
-                  <p>To ensure maximum security, the recovery passphrase is encrypted with multiple hashes and RSA encryption. The wallets are decentralized and can only be unilaterally accessed and managed by the users with their inital passphrase. A formal procedure to recover the passphrase is available in case a user loses or discards the passphrase.</p>
+                  <h2>{{ locale.secureTitle }}</h2>
+                  <p class="emphasis">{{ locale.secureEmphasis }}</p>
+                  <p>{{ locale.secureDescription }}</p>
                 </div>
               </div>
             </div>
             <div class="ui">
               <div class="container">
                 <div class="col-100 col-md-50 content">
-                  <h2>Brilliant user interface</h2>
-                  <p class="emphasis">Swene is designed to give its users an optimized experience by offering them the best features currently available.</p>
-                  <p>Our user experience and user interface are continuously updated and tailored to accomodate and conform to the latest standards, technologies and aesthetics of the web.   </p>
+                  <h2>{{ locale.uiTitle }}</h2>
+                  <p class="emphasis">{{ locale.uiEmphasis }}</p>
+                  <p>{{ locale.uiDescription }}</p>
                 </div>
                 <div class="col-100 col-md-50">
-                  <img alt="Swene, an easy-to-use, accessible and optimized user interface" src="/assets/img/screens.png" />
+                  <img alt="{{ locale.uiImageAlt }}" src="/assets/img/screens.png" />
                 </div>
               </div>
             </div>
             <div class="compliant">
               <div class="container">
                 <div class="col-100 col-md-50">
-                  <img alt="Swene - compliant, registered and trusted" src="/assets/img/compliant.png" />
+                  <img alt="{{ locale.compliantImageAlt }}" src="/assets/img/compliant.png" />
                 </div>
                 <div class="col-100 col-md-50 content">
-                  <h2>Fully compliant</h2>
-                  <p class="emphasis">Established in Estonia, Europe, Swene is fully registered and regulated in compliance with worldwide laws.</p>
-                  <p>Swene's main objective is to provide a regulated environment and a simple, free, complete and downloadable tax report</p>
+                  <h2>{{ locale.compliantTitle }}</h2>
+                  <p class="emphasis">{{ locale.compliantEmphasis }}</p>
+                  <p>{{ locale.compliantDescription }}</p>
                 </div>
               </div>
             </div>
             <div class="get-started" id="signup">
               <div class="container">
-                <h2>Get into cryptocurrencies now!</h2>
-                <h3 class="intro">Get started for free</h3>
-                <p>
-                  Open an individual or a professional account today to be the first to benefit from exclusive offers,<br />
-                  simply enter your email address below to open your account.
-                </p>
+                <h2>{{ locale.getStartedTitle }}</h2>
+                <h3 class="intro">{{ locale.getStartedForFree }}</h3>
+                <p>{{ locale.getStartedDescription }}</p>
               </div>
               <div class="panel">
-                <h3>Almost there!</h3>
-                <p>You're 2 seconds away from opening your account by typing your email address!</p>
+                <h3>{{ locale.getStartedAccountTitle }}</h3>
+                <p>{{ locale.getStartedAccountDescription }}</p>
 
                 <form method="post" action-xhr="https://api.swene.io/v1/user/register" enctype='application/json'>
                   <label for="account">
-                    Email address
+                    {{ locale.emailLabel }}
                   </label>
-                  <input type="text" placeholder="Your email address" id="account" name="data[email]" required/>
-                  <label for="account_newsletter">Subscribe to newsletter</label><input type="checkbox" id="account_newsletter" name="data[newsletter]"/>
+                  <input type="text" placeholder="{{ locale.emailInput }}" id="account" name="data[email]" required/>
+                  <label for="account_newsletter">{{ locale.subscribeToNewsLetter }}</label><input type="checkbox" id="account_newsletter" name="data[newsletter]"/>
                   <input type="hidden" name="data[user]" value="true" />
                   <div submit-success class="submit-success">
                     <template type="amp-mustache">
-                      Thanks for signing up!
+                      {{ locale.thanksForSigning }}
                     </template>
                   </div>
                   <div submit-error class="submit-error">
                     <template type="amp-mustache">
-                      This email address is already registered.
+                      {{ locale.alreadyRegistered }}
                     </template>
                   </div>
                   <button class="btn btn-primary">
-                    Get started <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="chevron-right"><path fill="currentColor" d="M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z"></path></svg>
+                    {{ locale.getStartedSubmit }} <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="chevron-right"><path fill="currentColor" d="M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z"></path></svg>
                   </button>
                 </form>
               </div>

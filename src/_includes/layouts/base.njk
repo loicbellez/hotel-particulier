@@ -1,0 +1,42 @@
+---
+pagination:
+  data: collections.posts
+  size: 7
+  alias: posts
+title: Posts
+layout: layouts/home
+---
+
+{% from "partials/card.njk" import card %}
+
+{% block content %}
+  {% set dashMatcher = r/^#/ %}
+
+  <section class="post-feed">
+    {% for post in posts %}
+      {% if post.tags %}
+        {% if lang == 'en' %}
+          {% set current_language = true %}
+        {% else %}
+          {% set current_language = false %}
+        {% endif %}
+        {% for tag in post.tags %}
+          {% if lang == 'en' %}
+            {% if dashMatcher.test(tag) %}
+              {% set current_language = false %}
+            {% endif %}
+          {% else %}
+            {% if tag == '#' + lang %}
+              {% set current_language = true %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        {% if current_language %}
+          {{ card(post) }}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </section>
+
+  {% include "partials/pagination.njk" %}
+{% endblock%}

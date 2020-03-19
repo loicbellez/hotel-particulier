@@ -37,20 +37,18 @@ module.exports = function(config) {
   // });
 
   // Copy images over from Ghost
-  config.addPlugin(localImages, {
-    distPath: "dist",
-    assetPath: "/assets/images",
-    selector: "img",
-    attribute: "data-src", // Lazy images attribute
-    verbose: false
-  });
+  // config.addPlugin(localImages, {
+  //   distPath: "dist",
+  //   assetPath: "/assets/images",
+  //   selector: "img",
+  //   attribute: "data-src", // Lazy images attribute
+  //   verbose: false
+  // });
 
   // Inline CSS
-  if (process.env.ELEVENTY_ENV != 'dev') {
-    config.addFilter("cssmin", code => {
-      return new cleanCSS({}).minify(code).styles;
-    });
-  }
+  config.addFilter("cssmin", code => {
+    return new cleanCSS({}).minify(code).styles;
+  });
 
   config.addFilter("getReadingTime", text => {
     const wordsPerMinute = 200;
