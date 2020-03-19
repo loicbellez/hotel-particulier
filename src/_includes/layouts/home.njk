@@ -78,7 +78,71 @@
     <body>
         {% include "partials/header.njk" %}
         <main>
-            <div class="overview">
+          {% raw %}
+            <amp-list width="auto" height="175" src="https://api.swene.io/rates/" layout="fixed-height" class="ticker-list">
+              <template type="amp-mustache">
+                <div class="ticker">
+                  <div class="col">
+                    <h3>{{title}}</h3>
+                    <span class="price">${{price}}</span>
+                    <span class="volume">${{volume}}</span>
+                  </div>
+                  <div class="col">
+                    {{#progression}}
+                    <div class="prog-up">{{percentage}}%</div>
+                    <div class="chart">
+                      <svg viewBox="0 0 100 40">
+                        <polyline
+                          fill="none"
+                          stroke="#51CC64"
+                          stroke-width="2"
+                          points="
+                    00,{{history.day1}}
+                    10,{{history.day2}}
+                    20,{{history.day3}}
+                    30,{{history.day4}}
+                    40,{{history.day5}}
+                    50,{{history.day6}}
+                    60,{{history.day7}}
+                    70,{{history.day8}}
+                    80,{{history.day9}}
+                    90,{{history.day10}}
+                    100,{{history.day11}}">
+                        </polyline>
+                      </svg>
+                    </div>
+                    {{/progression}}
+                    {{^progression}}
+                    <div class="prog-down">{{percentage}}%</div>
+                    <div class="chart">
+                      <svg viewBox="0 0 100 40">
+                        <polyline
+                          fill="none"
+                          stroke="#F00"
+                          stroke-width="2"
+                          points="
+                    00,{{history.day1}}
+                    10,{{history.day2}}
+                    20,{{history.day3}}
+                    30,{{history.day4}}
+                    40,{{history.day5}}
+                    50,{{history.day6}}
+                    60,{{history.day7}}
+                    70,{{history.day8}}
+                    80,{{history.day9}}
+                    90,{{history.day10}}
+                    100,{{history.day11}}">
+                        </polyline>
+                      </svg>
+                    </div>
+                    {{/progression}}
+                  </div>
+                </div>
+              </template>
+            </amp-list>
+          {% endraw %}
+
+          <div class="overview">
               <div class="container">
                 <h2>{{ locale.overviewTitle }}</h2>
                 <p class="emphasis">{{ locale.overviewEmphasis }}</p>
