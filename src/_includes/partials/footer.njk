@@ -1,7 +1,34 @@
 {% from "partials/icon.njk" import icon %}
 
 <footer class="site-foot">
-    <div class="site-foot-nav container">
+  <div class="signup dark-mode">
+    <h2>{{ locale.newsletterTitle }}</h2>
+    <p>{{ locale.newsletterDescription }}</p>
+    <form id="subscribe" method="post" action-xhr="https://api.swene.io/v1/user/register" enctype='application/json'>
+      <div class="email">
+        <label for="news">
+          {{ locale.emailLabel }}
+        </label>
+        <input type="text" placeholder="{{ locale.emailInput }}" id="news" class="email-field" name="data[email]" required/>
+        <input type="hidden" name="data[newsletter]" value="true" />
+      </div>
+      <div submit-success class="submit-success">
+        <template type="amp-mustache">
+          {{ locale.thanksForSigning }}
+        </template>
+      </div>
+      <div submit-error class="submit-error">
+        <template type="amp-mustache">
+          {{ locale.alreadyRegistered }}
+        </template>
+      </div>
+      <button class="btn btn-secondary">
+        {{ locale.newsletterSubmit }} <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="chevron-right"><path fill="currentColor" d="M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z"></path></svg>
+      </button>
+    </form>
+  </div>
+
+  <div class="site-foot-nav container">
         <div class="site-foot-nav-left">
             <a aria-current="page" class="" href="/">
                 {{ site.title }}
