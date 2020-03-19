@@ -4,9 +4,8 @@ pagination:
   size: 7
   alias: posts
 title: Posts
-layout: layouts/home
 ---
-
+{% extends 'layouts/home.njk' %}
 {% from "partials/card.njk" import card %}
 
 {% block content %}
@@ -14,26 +13,26 @@ layout: layouts/home
 
   <section class="post-feed">
     {% for post in posts %}
+      {% if lang == 'en' %}
+        {% set current_language = true %}
+      {% else %}
+        {% set current_language = false %}
+      {% endif %}
       {% if post.tags %}
-        {% if lang == 'en' %}
-          {% set current_language = true %}
-        {% else %}
-          {% set current_language = false %}
-        {% endif %}
         {% for tag in post.tags %}
           {% if lang == 'en' %}
             {% if dashMatcher.test(tag) %}
               {% set current_language = false %}
             {% endif %}
           {% else %}
-            {% if tag == '#' + lang %}
+            {% if tag == ('#' + lang) %}
               {% set current_language = true %}
             {% endif %}
           {% endif %}
         {% endfor %}
-        {% if current_language %}
-          {{ card(post) }}
-        {% endif %}
+      {% endif %}
+      {% if current_language %}
+        {{ card(post) }}
       {% endif %}
     {% endfor %}
   </section>
