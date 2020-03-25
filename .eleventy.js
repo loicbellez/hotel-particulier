@@ -23,6 +23,7 @@ const stripDomain = url => {
 
 module.exports = function(config) {
   config.addPassthroughCopy("src/assets");
+  config.addPassthroughCopy('src/favicon.ico');
 
     // Minify HTML
   if (process.env.ELEVENTY_ENV != 'dev') {
