@@ -67,6 +67,9 @@
   .emphasis {
     font-weight: 500;
   }
+  .full {
+    overflow: hidden;
+  }
   .nav {
     display: flex;
     flex-grow: 1;
