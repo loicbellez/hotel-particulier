@@ -67,6 +67,14 @@
   .emphasis {
     font-weight: 500;
   }
+  .nav {
+    display: flex;
+    flex-grow: 1;
+    padding: 1rem 0;
+  }
+  .logo-text {
+    align-self: center;
+  }
   .img-container {
     text-align: center;
     align-self: center;

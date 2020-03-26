@@ -25,7 +25,7 @@
             <meta name="twitter:creator" content="{{ site.twitter }}">
             <meta name="twitter:card" content="summary_large_image">
             <meta name="twitter:url" content="{{ site.url + page.url }}">
-            <meta name="twitter:title" content="{{ title + " – " + site.title if title else title }}">
+            <meta name="twitter:title" content="{{ title + " – " + locale.headTitle if title else title }}">
             <meta name="twitter:description" content="{{ site.description }}">
             <meta name="twitter:image" content="{{ site.cover_image }}">
 
@@ -39,11 +39,11 @@
             <!-- Facebook OpenGraph -->
             <meta property="og:url" content="{{site.url + page.url}}">
             <meta property="og:type" content="website">
-            <meta property="og:title" content="{{ title + " – " + site.title if title else title }}">
+            <meta property="og:title" content="{{ title + " – " + locale.headTitle if title else title }}">
             <meta property="og:image" content="{{ site.cover_image }}">
-            <meta property="og:description" content="{{ site.description }}">
-            <meta property="og:site_name" content="{{ site.title }}">
-            <meta property="og:locale" content="{{ site.lang }}">
+            <meta property="og:description" content="{{ locale.metaDescription }}">
+            <meta property="og:site_name" content="{{ locale.headTitle }}">
+            <meta property="og:locale" content="{%- if lang -%} {{ lang }} {%- else -%} en {%- endif -%}">
             <meta property="article:author" content="{{ site.url }}">
         {%- endblock -%}
 
@@ -60,7 +60,7 @@
         <link rel="alternate" hreflang="ru" href="{{ site.url }}/ru/" />
         <link rel="alternate" hreflang="it" href="{{ site.url }}/it/" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Poppins:300,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,300,500&display=swap" rel="stylesheet">
 
         {% set css %}{% include "css/main.css" %}{% endset %}
         <style amp-custom>{{ css | cssmin | safe }}</style>
