@@ -214,8 +214,6 @@
     background: #fff;
     display: none;
     list-style: none;
-    padding: 7rem 1.5rem;
-    flex-grow: 1;
   }
   .menu ul {
     margin: auto;

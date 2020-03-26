@@ -75,7 +75,7 @@
         {{ site.codeinjection_head | safe if site.codeinjection_head }}
         {{ codeinjection_head | safe if codeinjection_head }}
     </head>
-    <body [class]="menu ? 'full'">
+    <body [class]="menu ? 'full' : 'not-full'" class="not-full">
         {% include "partials/header.njk" %}
         <main class="site-main">
             <div class="container">
