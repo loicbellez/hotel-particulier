@@ -465,16 +465,14 @@
       display: block;
     }
     .col-md-40 {
-      flex: 0 0 calc(40% - 2rem);
-      max-width: calc(40% - 2rem);
+      flex: 0 0 40%;
     }
     .col-md-50 {
-      flex: 0 0 calc(50% - 2rem);
-      max-width: calc(50% - 2rem);
+      flex: 0 0 50%;
+      margin: 0 1rem;
     }
     .col-md-60 {
-      flex: 0 0 calc(60% - 2rem);
-      max-width: calc(60% - 2rem);
+      flex: 0 0 60%;
     }
     .menu-opened .logo {
       fill: #fff;
@@ -526,7 +524,7 @@
       font-size: 3rem;
     }
     .overview {
-      padding: 4rem 0;
+      padding: 5rem 0;
       background-position: 100% 0;
       -webkit-background-size: 50rem;
       -moz-background-size: 50rem;
