@@ -50,8 +50,7 @@
     display: flex !important;
   }
   .container {
-    padding: 0 1.5rem;
-    margin: auto;
+    margin: 0 3rem;
     display: flex;
     flex-wrap: wrap;
   }
@@ -73,10 +72,7 @@
   .nav {
     display: flex;
     flex-grow: 1;
-    padding: 1rem 0;
-  }
-  .logo-text {
-    align-self: center;
+    margin: 2rem 0;
   }
   .img-container {
     text-align: center;
@@ -84,7 +80,7 @@
   }
   .content {
     align-self: center;
-  }
+  }/*
   .languages {
     text-align: center;
     overflow: visible;
@@ -123,7 +119,7 @@
   .languagepicker a {
     color: #000;
     text-decoration: none;
-  }
+  }*/
   .btn {
     border-radius: 0.2rem;
     display: block;
@@ -151,12 +147,15 @@
   .logo {
     fill: #fff;
     height: 3rem;
-    padding: 1rem 0;
+    align-self: center;
   }
   .logo-text {
-    height: 1rem;
-    margin: 2rem 1rem;
-  }
+    margin: 0 1rem;
+    align-self: center;
+    flex-grow: 1;
+    font-weight: 500;
+    font-size: 1.3rem;
+  }/*
   .menu-opened .logo {
     fill: #13192F;
   }
@@ -201,10 +200,6 @@
   .menu-opened .arrow-down:before, .menu-opened .arrow-down:after {
     background: #484848;
   }
-  .hero {
-    background: url("/assets/img/swene-trading-tools.jpg") top right no-repeat #13192F;
-    color: #fff;
-  }
   .menu {
     position: absolute;
     top: 0;
@@ -222,9 +217,13 @@
   .menu a {
     color: #484848;
     line-height: 2.5rem;
-  }
+  }*/
   .nav .btn {
     margin: auto 0 auto 0;
+  }
+  .hero {
+    background: url("/assets/img/swene-trading-tools.jpg") top right no-repeat #13192F;
+    color: #fff;
   }
   .hero h1 {
     font-size: 2rem;
@@ -413,9 +412,11 @@
     flex-grow: 1;
   }
   @media (min-width: 640px) {
+    /*
     .container {
       max-width: 608px;
     }
+    */
     .hero h1 {
       font-size: 3rem;
     }
@@ -452,9 +453,11 @@
     }
   }
   @media (min-width: 768px) {
+    /*
     .container {
       max-width: 720px;
     }
+    */
     .d-md-none {
       display: none;
     }
@@ -462,17 +465,14 @@
       display: block;
     }
     .col-md-40 {
-      padding: 0 1rem;
       flex: 0 0 calc(40% - 2rem);
       max-width: calc(40% - 2rem);
     }
     .col-md-50 {
-      padding: 0 1rem;
       flex: 0 0 calc(50% - 2rem);
       max-width: calc(50% - 2rem);
     }
     .col-md-60 {
-      padding: 0 1rem;
       flex: 0 0 calc(60% - 2rem);
       max-width: calc(60% - 2rem);
     }
@@ -517,9 +517,11 @@
     }
   }
   @media (min-width: 1024px) {
+    /*
     .container {
       max-width: 960px;
     }
+    */
     .hero h1 {
       font-size: 3rem;
     }
@@ -551,11 +553,13 @@
     }
   }
   @media (min-width: 1280px) {
+    /*
     .container {
       max-width: 1200px;
     }
+    */
     .hero h1 {
-      font-size: 4rem;
+      font-size: 3.5rem;
     }
     .overview {
       padding: 8rem 0;
