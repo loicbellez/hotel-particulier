@@ -1,8 +1,8 @@
 # Redirects using country
-/  /en  302  Country=en
+/*  /en/:splat  302!  Country=en
 /  /ru  302  Country=ru
 /  /fr  302  Country=fr
 /  /ee  302  Country=ee
 
 # Redirect users with English language preference from /ee to /ee/en
-/en/*  /en/en/:splat  302  Language=en
+# /en/*  /en/en/:splat  302  Language=en
