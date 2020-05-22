@@ -5,4 +5,4 @@
 /  /ee  302  Country=ee
 
 # Redirect users with English language preference from /ee to /ee/en
-# /fr/*  /fr/en/:splat  302  Language=en
+/en/*  /en/en/:splat  302  Language=en
