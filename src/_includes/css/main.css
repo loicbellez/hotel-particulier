@@ -72,7 +72,7 @@
   .nav {
     display: flex;
     flex-grow: 1;
-    margin: 2rem 0;
+    margin: 2.5rem 0;
   }
   .img-container {
     text-align: center;
@@ -80,46 +80,7 @@
   }
   .content {
     align-self: center;
-  }/*
-  .languages {
-    text-align: center;
-    overflow: visible;
-    height: 1.5rem;
-    z-index: 1000;
-    padding: 0.5rem 0;
-    margin: auto 1rem auto auto;
-    width: 10rem;
-    font-weight: 400;
   }
-  .languagepicker {
-    display: none;
-    border-radius: 0.25rem;
-    margin: 0.5rem;
-    background: #fff;
-  }
-  .languagepicker:hover {
-    border-radius: 0.25rem;
-  }
-  .languages:hover .languagepicker {
-    display: block;
-  }
-  .languagepicker li {
-    display: block;
-    line-height: 2.5rem;
-    font-weight: 400;
-    border-top: 1px solid #EEE;
-  }
-  .languagepicker li:first-child {
-    border-top: 0
-  }
-  .languagepicker li:hover {
-    background-color: #EEE;
-    border-radius: 0.25rem;
-  }
-  .languagepicker a {
-    color: #000;
-    text-decoration: none;
-  }*/
   .btn {
     border-radius: 0.2rem;
     display: block;
@@ -222,8 +183,10 @@
     margin: auto 0 auto 0;
   }
   .hero {
-    background: url("/assets/img/swene-trading-tools.jpg") top right no-repeat #13192F;
+    background: #000;
+    padding: 6.66666vw;
     color: #fff;
+    height: 100vh;
   }
   .hero h1 {
     font-size: 2rem;

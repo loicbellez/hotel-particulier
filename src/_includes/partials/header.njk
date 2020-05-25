@@ -1,8 +1,9 @@
 <header class="hero"{% if site.cover_image %} style="background-image: url('{{ site.cover_image }}')"{% endif %}>
+    <nav class="lang">
+      <a href="/fr">FR</a>
+    </nav>
     <div class="container">
-        {% include 'partials/navigation.njk' %}
-    </div>
-    <div class="container">
+      {% include 'partials/navigation.njk' %}
         <div class="col-md-60">
             <h1>{{ locale.headTitle }}</h1>
             <p>{{ locale.headDescription }}</p>
