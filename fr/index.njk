@@ -1,0 +1,18 @@
+---
+title: Bonjour la omelette du fromage
+layout: layouts/home.njk
+description: Description. Update me.
+image: https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg
+date: Last Modified
+---
+
+<p>
+  froma fromage fromage putain
+  <a href="https://www.industrialempathy.com/posts/eleventy-high-performance-blog/">eleventy-high-performance-blog</a>.
+</p>
+
+<div id="posts">
+  <h2>Posts</h2>
+  {% set postslist = collections.posts_fr %}
+  {% include "postslist.njk" %}
+</div>

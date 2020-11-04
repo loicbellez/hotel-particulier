@@ -1,214 +1,290 @@
-require("dotenv").config();
+/**
+ * Copyright (c) 2020 Google Inc
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 
-const cleanCSS = require("clean-css");
+/**
+ * Copyright (c) 2018 Zach Leatherman
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+const { DateTime } = require("luxon");
+const { promisify } = require("util");
 const fs = require("fs");
-const pluginRSS = require("@11ty/eleventy-plugin-rss");
-const localImages = require("eleventy-plugin-local-images");
-const lazyImages = require("eleventy-plugin-lazyimages");
-const ghostContentAPI = require("@tryghost/content-api");
+const hasha = require("hasha");
+const readFile = promisify(fs.readFile);
+const stat = promisify(fs.stat);
+const execFile = promisify(require("child_process").execFile);
+const pluginRss = require("@11ty/eleventy-plugin-rss");
+const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const pluginNavigation = require("@11ty/eleventy-navigation");
+const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
+const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
+const CleanCSS = require("clean-css");
+const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
+/////////////////////////////////////////
+const i18n = require('eleventy-plugin-i18n');
+const translations = require('./_data/i18n');
+///////////////////////////////////
 
-const htmlMinTransform = require("./src/transforms/html-min-transform.js");
+module.exports = function (eleventyConfig) {
 
-// Init Ghost API
-const api = new ghostContentAPI({
-  url: process.env.GHOST_API_URL,
-  key: process.env.GHOST_CONTENT_API_KEY,
-  version: "v2"
-});
 
-// Strip Ghost domain from urls
-const stripDomain = url => {
-  return url.replace(process.env.GHOST_API_URL, "");
-};
-
-module.exports = function(config) {
-  config.addPassthroughCopy("src/assets");
-  config.addPassthroughCopy('src/favicon.ico');
-
-    // Minify HTML
-  if (process.env.ELEVENTY_ENV != 'dev') {
-    config.addTransform("htmlmin", htmlMinTransform);
+  eleventyConfig.addPlugin(i18n, {
+  translations,
+  fallbackLocales: {
+    '*': 'en'
   }
-  // Assist RSS feed template
-  config.addPlugin(pluginRSS);
-
-  // Apply performance attributes to images
-  // config.addPlugin(lazyImages, {
-  //   cacheFile: ""
-  // });
-
-  // Copy images over from Ghost
-  // config.addPlugin(localImages, {
-  //   distPath: "dist",
-  //   assetPath: "/assets/images",
-  //   selector: "img",
-  //   attribute: "data-src", // Lazy images attribute
-  //   verbose: false
-  // });
-
-  // Inline CSS
-  config.addFilter("cssmin", code => {
-    return new cleanCSS({}).minify(code).styles;
   });
 
-  config.addFilter("getReadingTime", text => {
-    const wordsPerMinute = 200;
-    const numberOfWords = text.split(/\s/g).length;
-    return Math.ceil(numberOfWords / wordsPerMinute);
+  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(pluginSyntaxHighlight);
+  eleventyConfig.addPlugin(pluginNavigation);
+
+  eleventyConfig.addPlugin(localImages, {
+    distPath: "_site",
+    assetPath: "/img/remote",
+    selector:
+      "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
+    verbose: false,
   });
 
-  // Date formatting filter
-  config.addFilter("htmlDateString", dateObj => {
-    return new Date(dateObj).toISOString().split("T")[0];
-  });
-
-  // Don't ignore the same files ignored in the git repo
-  config.setUseGitIgnore(false);
-
-  // Get all pages, called 'docs' to prevent
-  // conflicting the eleventy page object
-  config.addCollection("docs", async function(collection) {
-    collection = await api.pages
-      .browse({
-        include: "authors",
-        limit: "all"
+  eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
+  eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
+  eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
+  eleventyConfig.addPlugin(require("./_11ty/apply-csp.js"));
+  eleventyConfig.setDataDeepMerge(true);
+  eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
+  eleventyConfig.addNunjucksAsyncFilter("addHash", function (
+    absolutePath,
+    callback
+  ) {
+    readFile(`_site${absolutePath}`, {
+      encoding: "utf-8",
+    })
+      .then((content) => {
+        return hasha.async(content);
       })
-      .catch(err => {
-        console.error(err);
-      });
-
-    collection.map(doc => {
-      doc.url = stripDomain(doc.url);
-      doc.primary_author.url = stripDomain(doc.primary_author.url);
-
-      // Convert publish date into a Date object
-      doc.published_at = new Date(doc.published_at);
-      return doc;
-    });
-
-    return collection;
+      .then((hash) => {
+        callback(null, `${absolutePath}?hash=${hash.substr(0, 10)}`);
+      })
+      .catch((error) => callback(error));
   });
 
-  // Get all posts
-  config.addCollection("posts", async function(collection) {
-    collection = await api.posts
-      .browse({
-        include: "tags,authors",
-        limit: "all"
-      })
-      .catch(err => {
-        console.error(err);
-      });
-
-    collection.forEach(post => {
-      post.url = stripDomain(post.url);
-      post.primary_author.url = stripDomain(post.primary_author.url);
-      post.tags = post.tags.map(tag => (tag.name));
-
-      // Convert publish date into a Date object
-      post.published_at = new Date(post.published_at);
-    });
-
-    // Bring featured post to the top of the list
-    collection.sort((post, nextPost) => nextPost.featured - post.featured);
-    return collection;
-  });
-
-  // Get all authors
-  config.addCollection("authors", async function(collection) {
-    collection = await api.authors
-      .browse({
-        limit: "all"
-      })
-      .catch(err => {
-        console.error(err);
-      });
-
-    // Get all posts with their authors attached
-    const posts = await api.posts
-      .browse({
-        include: "authors",
-        limit: "all"
-      })
-      .catch(err => {
-        console.error(err);
-      });
-
-    // Attach posts to their respective authors
-    collection.forEach(async author => {
-      const authorsPosts = posts.filter(post => {
-        post.url = stripDomain(post.url);
-        return post.primary_author.id === author.id;
-      });
-      if (authorsPosts.length) author.posts = authorsPosts;
-
-      author.url = stripDomain(author.url);
-    });
-
-    return collection;
-  });
-
-  // Get all tags
-  config.addCollection("tags", async function(collection) {
-    collection = await api.tags
-      .browse({
-        include: "count.posts",
-        limit: "all"
-      })
-      .catch(err => {
-        console.error(err);
-      });
-
-    // Get all posts with their tags attached
-    const posts = await api.posts
-      .browse({
-        include: "tags,authors",
-        limit: "all"
-      })
-      .catch(err => {
-        console.error(err);
-      });
-
-    // Attach posts to their respective tags
-    collection.forEach(async tag => {
-      const taggedPosts = posts.filter(post => {
-        post.url = stripDomain(post.url);
-        return post.primary_tag && post.primary_tag.slug === tag.slug;
-      });
-      if (taggedPosts.length) tag.posts = taggedPosts;
-
-      tag.url = stripDomain(tag.url);
-    });
-
-    return collection;
-  });
-
-  // Display 404 page in BrowserSnyc
-  config.setBrowserSyncConfig({
-    callbacks: {
-      ready: (err, bs) => {
-        const content_404 = fs.readFileSync("dist/404.html");
-
-        bs.addMiddleware("*", (req, res) => {
-          // Provides the 404 content without redirect.
-          res.write(content_404);
-          res.end();
-        });
-      }
+  async function lastModifiedDate(filename) {
+    try {
+      const { stdout } = await execFile("git", [
+        "log",
+        "-1",
+        "--format=%cd",
+        filename,
+      ]);
+      return new Date(stdout);
+    } catch (e) {
+      console.error(e.message);
+      // Fallback to stat if git isn't working.
+      const stats = await stat(filename);
+      return stats.mtime; // Date
     }
+  }
+  // Cache the lastModifiedDate call because shelling out to git is expensive.
+  // This means the lastModifiedDate will never change per single eleventy invocation.
+  const lastModifiedDateCache = new Map();
+  eleventyConfig.addNunjucksAsyncFilter("lastModifiedDate", function (
+    filename,
+    callback
+  ) {
+    const call = (result) => {
+      result.then((date) => callback(null, date));
+      result.catch((error) => callback(error));
+    };
+    const cached = lastModifiedDateCache.get(filename);
+    if (cached) {
+      return call(cached);
+    }
+    const promise = lastModifiedDate(filename);
+    lastModifiedDateCache.set(filename, promise);
+    call(promise);
   });
 
-  // Eleventy configuration
-  return {
-    dir: {
-      input: "src",
-      output: "dist"
-    },
+  eleventyConfig.addFilter("encodeURIComponent", function (str) {
+    return encodeURIComponent(str);
+  });
 
-    // Files read by Eleventy, add as needed
-    templateFormats: ["css", "njk", "md", "txt"],
-    htmlTemplateEngine: "njk",
+  eleventyConfig.addFilter("cssmin", function (code) {
+    return new CleanCSS({}).minify(code).styles;
+  });
+
+  eleventyConfig.addFilter("readableDate", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
+      "dd LLL yyyy"
+    );
+  });
+
+  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
+  });
+
+  eleventyConfig.addFilter("sitemapDateTimeString", (dateObj) => {
+    const dt = DateTime.fromJSDate(dateObj, { zone: "utc" });
+    if (!dt.isValid) {
+      return "";
+    }
+    return dt.toISO();
+  });
+
+  // Get the first `n` elements of a collection.
+  eleventyConfig.addFilter("head", (array, n) => {
+    if (n < 0) {
+      return array.slice(n);
+    }
+
+    return array.slice(0, n);
+  });
+
+  //modif
+  eleventyConfig.addCollection("posts_en", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("en/posts/*.md");
+  });
+
+  eleventyConfig.addCollection("nav_en", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("en/about/*.md");
+  });
+
+  eleventyConfig.addCollection("posts_fr", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("fr/posts/*.md");
+  });
+
+  eleventyConfig.addCollection("nav_fr", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("fr/about/*.md");
+  });
+
+  eleventyConfig.addCollection("posts_est", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("est/posts/*.md");
+  });
+
+  eleventyConfig.addCollection("nav_est", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("est/about/*.md");
+  });
+  ////
+
+  eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
+
+  eleventyConfig.addPassthroughCopy("img");
+  eleventyConfig.addPassthroughCopy("css");
+  // We need to copy cached.js only if GA is used
+  eleventyConfig.addPassthroughCopy(GA_ID ? "js" : "js/*[!cached].*");
+  eleventyConfig.addPassthroughCopy("fonts");
+  eleventyConfig.addPassthroughCopy("_headers");
+
+  // We need to rebuild upon JS change to update the CSP.
+  eleventyConfig.addWatchTarget("./js/");
+  // We need to rebuild on CSS change to inline it.
+  eleventyConfig.addWatchTarget("./css/");
+  // Unfortunately this means .eleventyignore needs to be maintained redundantly.
+  // But without this the JS build artefacts doesn't trigger a build.
+  eleventyConfig.setUseGitIgnore(false);
+
+  /* Markdown Overrides */
+  let markdownLibrary = markdownIt({
+    html: true,
+    breaks: true,
+    linkify: true,
+  }).use(markdownItAnchor, {
+    permalink: true,
+    permalinkClass: "direct-link",
+    permalinkSymbol: "#",
+  });
+  eleventyConfig.setLibrary("md", markdownLibrary);
+
+  // Browsersync Overrides
+  eleventyConfig.setBrowserSyncConfig({
+    callbacks: {
+      ready: function (err, browserSync) {
+        const content_404 = fs.readFileSync("_site/404.html");
+
+        browserSync.addMiddleware("*", (req, res) => {
+          // Provides the 404 content without redirect.
+
+          if (req.url === '/') {
+            res.writeHead(302, {
+              location: '/en/'
+            });
+            res.end();
+          } else {
+            res.write(content_404);
+            res.end();
+          }
+        });
+      },
+    },
+    ui: false,
+    ghostMode: false,
+  });
+
+///////////////
+
+///////////////////
+
+  return {
+    templateFormats: ["md", "njk", "html", "liquid"],
+
+    // If your site lives in a different subdirectory, change this.
+    // Leading or trailing slashes are all normalized away, so don’t worry about those.
+
+    // If you don’t have a subdirectory, use "" or "/" (they do the same thing)
+    // This is only used for link URLs (it does not affect your file structure)
+    // Best paired with the `url` filter: https://www.11ty.io/docs/filters/url/
+
+    // You can also pass this in on the command line using `--pathprefix`
+    // pathPrefix: "/",
+
+    // markdownTemplateEngine: "liquid",
     markdownTemplateEngine: "njk",
-    passthroughFileCopy: true
+    htmlTemplateEngine: "njk",
+    dataTemplateEngine: "njk",
+
+    // These are all optional, defaults are shown:
+    dir: {
+      input: ".",
+      includes: "_includes",
+      data: "_data",
+      // Warning hardcoded throughout repo. Find and replace is your friend :)
+      output: "_site",
+    },
   };
 };
