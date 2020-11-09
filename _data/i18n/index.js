@@ -38,7 +38,7 @@ module.exports = {
   since: {
     'en': 'Since you have made it this far, please share this article on your favorite social media network would be highly appreciated!💖',
     'est': 'Kuna olete siiani jõudnud, jagage palun seda artiklit oma lemmik sotsiaalmeediavõrgustikus oleks väga hinnatud 💖!',
-    'fr': 'Puisque vous êtes arrivé jusquici, partagez cet article sur votre réseau social préféré serait très apprécié 💖!'
+    'fr': 'Puisque vous êtes arrivé jusqu\'ici, partagez cet article sur votre réseau social préféré serait très apprécié 💖!'
   },
 
   // Nested organisation example
