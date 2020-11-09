@@ -1,23 +1,3 @@
-/**
- * Copyright (c) 2020 Google Inc
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of
- * this software and associated documentation files (the "Software"), to deal in
- * the Software without restriction, including without limitation the rights to
- * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- * the Software, and to permit persons to whom the Software is furnished to do so,
- * subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 
 const { JSDOM } = require("jsdom");
 const { promisify } = require("util");
@@ -28,12 +8,6 @@ const path = require("path");
 
 const ACTIVATE_AVIF = false;
 
-/**
- * Sets `width` and `height` on each image, adds blurry placeholder
- * and generates a srcset if none present.
- * Note, that the static `sizes` string would need to change for a different
- * blog layout.
- */
 
 const processImage = async (img, outputPath) => {
   let src = img.getAttribute("src");
@@ -61,8 +35,8 @@ const processImage = async (img, outputPath) => {
     return;
   }
   if (img.tagName == "IMG") {
-    img.setAttribute("decoding", "async");
-    img.setAttribute("loading", "lazy");
+    // img.setAttribute("decoding", "async");
+    // img.setAttribute("loading", "lazy");
     // Contain the intrinsic to the `--main-width` (width of the main article body)
     // and the aspect ratio times that size. But because images are `max-width: 100%`
     // use the `min` operator to set the actual dimensions of the image as the
@@ -72,32 +46,61 @@ const processImage = async (img, outputPath) => {
     }px) min(calc(var(--main-width) * ${
       dimensions.height / dimensions.width
     }), ${dimensions.height}px)`;
-    img.setAttribute(
-      "style",
-      `background-size:cover;` +
-        `contain-intrinsic-size: ${containSize};` +
-        `background-image:url("${await blurryPlaceholder(src)}")`
-    );
+    // img.setAttribute(
+    //   "style",
+    //   `background-size:cover;` +
+    //     `contain-intrinsic-size: ${containSize};` +
+    //     `background-image:url("${await blurryPlaceholder(src)}")`
+    // );
     const doc = img.ownerDocument;
-    const picture = doc.createElement("picture");
-    const avif = doc.createElement("source");
-    const webp = doc.createElement("source");
-    const jpeg = doc.createElement("source");
-    if (ACTIVATE_AVIF) {
-      await setSrcset(avif, src, "avif");
-    }
-    avif.setAttribute("type", "image/avif");
-    await setSrcset(webp, src, "webp");
-    webp.setAttribute("type", "image/webp");
-    await setSrcset(jpeg, src, "jpeg");
-    jpeg.setAttribute("type", "image/jpeg");
-    if (ACTIVATE_AVIF) {
-      picture.appendChild(avif);
-    }
-    picture.appendChild(webp);
-    picture.appendChild(jpeg);
+
+    const picture = doc.createElement("amp-img");
+    //picture.setAttribute("src", await srcset(src, "webp"));
+
+    var src_webp = src.replace(".jpg", "-1920w.webp");
+
+    picture.setAttribute("src", src_webp);
+    picture.setAttribute("layout", "responsive");
+    await setSrcset(picture, src, "webp");
+
+    picture.setAttribute("width","1920"); // original:640
+    picture.setAttribute("height","900"); // original:457
+
+    // fallback jpg below
+
+    const picturejpg = doc.createElement("amp-img");
+    var src_jpg = src.replace(".jpg", "-1920w.jpg");
+    picturejpg.setAttribute("fallback","");
+    picturejpg.setAttribute("src", src_jpg);
+    picturejpg.setAttribute("layout", "responsive");
+    await setSrcset(picturejpg, src, "jpeg");
+
+    picturejpg.setAttribute("width","1920");
+    picturejpg.setAttribute("height","900");
+
+    picture.appendChild(picturejpg);
+
+
+    // const avif = doc.createElement("source");
+    // const webp = doc.createElement("source");
+    // const jpeg = doc.createElement("source");
+    //
+    // if (ACTIVATE_AVIF) {
+    //   await setSrcset(avif, src, "avif");
+    // }
+    //
+    // avif.setAttribute("type", "image/avif");
+    // await setSrcset(webp, src, "webp");
+    // webp.setAttribute("type", "image/webp");
+    // await setSrcset(jpeg, src, "jpeg");
+    // jpeg.setAttribute("type", "image/jpeg");
+    // if (ACTIVATE_AVIF) {
+    //   picture.appendChild(avif);
+    // }
+    // picture.appendChild(webp);
+    // picture.appendChild(jpeg);
     img.parentElement.replaceChild(picture, img);
-    picture.appendChild(img);
+    //picture.appendChild(img);
   } else if (!img.getAttribute("srcset")) {
     await setSrcset(img, src, "jpeg");
   }

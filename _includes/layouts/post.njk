@@ -20,14 +20,22 @@ templateClass: tmpl-post
 
 <h1>🙏🙏🙏</h1>
 <p>
-  {{ 'since' | i18n }} <a href="{{ shareUrl | safe }}" on-click="share">sharing</a>
+  {{ 'since' | i18n }} 
 </p>
 
-<share-widget>
+<!--<share-widget>
   <button on-click="share" aria-label="Share" href="{{ shareUrl | safe }}">
     <div></div>
   </button>
-</share-widget>
+</share-widget>-->
+
+<amp-social-share type="email"
+  aria-label="Share by email"></amp-social-share>
+<amp-social-share type="facebook"
+  aria-label="Share on Facebook"
+  data-param-app_id="254325784911610"></amp-social-share>
+<amp-social-share type="linkedin"
+  aria-label="Share on LinkedIn"></amp-social-share>
 
 <script type="application/ld+json">
 {

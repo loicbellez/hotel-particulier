@@ -1,6 +1,6 @@
 {
   "title": "",
-  "url": "https://update-me.com",
+  "url": "https://localhost:8080",
   "domain": "update-me.com",
   "description": "Description of the website. Update me.",
   "genre": "Insert a schema.org genre",

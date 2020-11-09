@@ -11,6 +11,7 @@
     <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
+    <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<meta http-equiv="Content-Security-Policy" content="{{ csp.regular | safe }}">-->
@@ -43,6 +44,9 @@
     {% endif %}
 
     <link rel="canonical" href="{{ metadata.url }}{{ canonicalUrl or page.url }}">
+
+    <!--<link rel="canonical" href="{{ page.url | url }}">-->
+
     <!-- This is a blog and so it SHOULD be safe and it is nice for the web
          to send referrers cross-origin.
          However, if you use sensitive data in URLs, consider changing this to
@@ -96,65 +100,13 @@
         <div id="reading-progress" aria-hidden="true"></div>
       </nav>
       <!--<h1>{{ title }}</h1>-->
-    <div>
-      <amp-carousel type="slides" layout="responsive" type="slides" autoplay delay="10000" width="1920" height="900" id="carousel" on="slideChange:AMP.setState({selected: {slide: event.index}})">
-        <div class="slide">
 
-            <amp-img class="img-slide" layout="responsive" alt="" fallback width="1920" height="900" src="/img/img1.jpg"></amp-img>
-
-          <div class="caption">
-            <h2> </h2>
-            <h3> </h3>
-            <p> </p>
-
-            </a>
-            <span>01</span>
-          </div>
-        </div>
-        <div class="slide">
-          <amp-img class="img-slide" layout="responsive" alt="" fallback width="1920" height="900" src="/img/img2.jpg"></amp-img>
-          <div class="caption">
-            <h2>Bar</h2>
-            <h3>Cocktails &amp; Tapas</h3>
-            <p>Hidden away in a green haven, the location of the Très Particulier is a well-kept secret that has always been shared off the record.</p>
-
-            <span>02</span>
-          </div>
-        </div>
-        <div class="slide">
-          <amp-img class="img-slide" layout="responsive" alt="" fallback width="1920" height="900" src="/img/img3.jpg"></amp-img>
-          <div class="caption">
-            <h2> </h2>
-            <h3> </h3>
-            <p> </p>
-
-            <span>03</span>
-          </div>
-        </div>
-        <div class="slide">
-          <amp-img class="img-slide" layout="responsive" alt="" fallback width="1920" height="900" src="/img/img4.jpg"></amp-img>
-          <div class="caption">
-            <h2> </h2>
-            <h3> </h3>
-            <p> </p>
-
-            <span>04</span>
-          </div>
-        </div>
-      </amp-carousel>
-    </div>
 
       {% block extraArticleHeader %}{% endblock %}
-      <!-- <amp-lightbox id="my-lightbox"
-        layout="nodisplay">
-        <div class="lightbox"
-        on="tap:my-lightbox.close"
-        role="button"
-        tabindex="0">
-        <h1>Hello World!</h1>
-        </div>
-      </amp-lightbox> -->
-      <dialog id="message"></dialog>
+
+
+      <!--<dialog id="message"></dialog>-->
+
       {% if googleanalytics %}
       <noscript>
         <img src="/.netlify/functions/ga?v=1&_v=j83&t=pageview&dr=https%3A%2F%2Fno-script.com&_s=1&dh={{ metadata.domain | encodeURIComponent }}&dp={{ page.url | encodeURIComponent }}&ul=en-us&de=UTF-8&dt={{title|encodeURIComponent}}&tid={{googleanalytics}}" width="1" height="1"
@@ -164,47 +116,23 @@
     </header>
 
     <main>
-      <div>
-        <amp-carousel type="slides" layout="responsive" type="slides" autoplay delay="10000" width="1920" height="900" id="carousel" on="slideChange:AMP.setState({selected: {slide: event.index}})">
-          <div class="slide">
-
-              <amp-img class="img-slide"  layout="responsive" alt="" fallback width="1920" height="900" src="/img/img1.jpg"></amp-img>
-
-            <div class="caption">
-              <h2> </h2>
-              <h3> </h3>
-              <p> </p>
-
-              </a>
-
-            </div>
-          </div>
-          <div class="slide">
-            <amp-img class="img-slide" layout="responsive" alt=""  src="/img/img2.jpg"></amp-img>
-            <div class="caption">
+      
 
 
-            </div>
-          </div>
-          <div class="slide">
-            <amp-img class="img-slide" layout="responsive" alt="" fallback width="1920" height="900" src="/img/img3.jpg"></amp-img>
-            <div class="caption">
-              <h2> </h2>
-              <h3> </h3>
-              <p> </p>
-            </div>
-          </div>
-          <div class="slide">
-            <amp-img class="img-slide" layout="responsive" alt="" fallback width="1920" height="900" src="/img/img4.jpg"></amp-img>
-            <div class="caption">
-              <h2> </h2>
-              <h3> </h3>
-              <p> </p>
+      <amp-lightbox id="my-lightbox"
+        layout="nodisplay">
+        <div class="lightbox"
+        on="tap:my-lightbox.close"
+        role="button"
+        tabindex="0">
+        <h1>Link copied to clipboard</h1>
+        </div>
+      </amp-lightbox>
+      <button on="tap:my-lightbox">
+        Open lightbox
+      </button>
 
-            </div>
-          </div>
-        </amp-carousel>
-      </div>
+
       <article>
         {% block article %}
           {{ content | safe }}
