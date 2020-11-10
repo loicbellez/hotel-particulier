@@ -8,33 +8,159 @@ templateClass: tmpl-home
     <div class="slide">
       <img src="/img/img1.jpg"
          class="img-slide"
-         </img>
+         >
     </div>
     <div class="slide">
       <img src="/img/img2.jpg"
          class="img-slide"
-         </img>
+         >
     </div>
     <div class="slide">
       <img src="/img/img3.jpg"
          class="img-slide"
-         </img>
+         >
     </div>
     <div class="slide">
       <img src="/img/img4.jpg"
          class="img-slide"
-         </img>
+         >
     </div>
     </amp-carousel>
 </div>
 
-<h1>PARISIAN HEDONISM<h1>
-<div>
-<p>Welcome to the Hotel Particulier Montmartre,<strong> the most private and smallest Parisian hotels</strong> ! A boutique hotel in Paris, this haven of greenery that used to belong to the Hermes family and became a Private House allows you to discover <strong>the largest hotel garden in the capital, part of the last vestiges of the Maquis de Montmartre</strong>.</p>
-<p>&nbsp;</p>
-<p>. Over time this family house that was once called “une Folie” has established itself as <strong>a reference in Paris</strong>.</p>
-<p>&nbsp;</p>
-<p>Whether <strong>for a drink, for a dinner or for a night</strong>, the Hôtel Particulier awaits you in Montmartre in what many people rightly call “a countryside in the heart of Paris”</p
+
+<h1 style="text-transform:uppercase;">{{ p1h | safe }}</h1>
+<div class="paragraph1">
+  <p>
+      {{ p1s1 | safe }}<strong>{{ p1s2 | safe}}</strong> {{ p1s3 | safe }}<strong>{{ p1s4 | safe }}</strong>
+  </p>
+  <p>&nbsp;</p>
+  <p>
+      {{ p1s5 | safe }}<strong>{{ p1s6 | safe }}</strong>
+  </p>
+  <p>&nbsp;</p>
+  <p>
+      {{ p1s7 | safe }}<strong>{{ p1s8 | safe }}</strong>{{ p1s9 | safe }}
+  </p>
 </div>
+<p>&nbsp;</p>
+
+
+<img src="/img/aimg1.jpg"</img>
+<div class="paragraph2">
+  <p>
+      <strong>{{ p2s1 | safe }}</strong>{{ p2s2 | safe }}
+      <span style="font-size: 1rem;">&nbsp;{{ p2s3 | safe }}</span>
+  </p>
+  <p>&nbsp;</p>
+  <p>
+      <strong>{{ p2s4 | safe }}</strong>{{ p2s5 }}<strong>{{ p2s6 }}
+      </strong>{{ p2s7 }}<strong>{{ p2s8 }}</strong>
+  </p>
+  <p>&nbsp;</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<img src="/img/aimg2.jpg"</img>
+<div class="paragraph3">
+  <p>
+      {{ p3 | safe }}
+  </p>
+  <p>&nbsp;</p>
+</div>
+<p>&nbsp;</p>
+
+
+<h1>{{ restaurant }}</h1>
+<img src="/img/restaurant.jpg"</img>
+<div class="paragraph4">
+  <p>
+      <strong>{{ p4s1 }}</strong>{{ p4s2 }}<strong>{{ p4s3 }}</strong>
+      {{ p4s4 }}<strong>{{ p4s5 }}</strong> {{ p4s6 | safe }}
+  </p>
+  <p>&nbsp;</p>
+</div>
+<p>&nbsp;</p>
+
+
+
+<h1>{{ bar }}</h1>
+<img src="/img/bar.jpg"</img>
+<div class="paragraph5">
+  <p>
+      {{ p5s1 }}<strong>{{ p5s2 }}</strong>{{ p5s3 }}&nbsp;
+      {{ p5s4 }}
+  </p>
+  <p>&nbsp;</p>
+</div>
+<p>&nbsp;</p>
+
+
+
+<div>
+  <amp-carousel type="slides" layout="responsive" type="slides" autoplay delay="10000" width="1920" height="900" id="carousel2" >
+    <div class="slide">
+      <img src="/img/suite1.jpg"
+         class="img-slide"
+         </img>
+         <div class="caption">
+            Junior suite
+         </div>
+    </div>
+    <div class="slide">
+      <img src="/img/suite2.jpg"
+         class="img-slide"
+         </img>
+         <div class="caption">
+            Superior junior suite
+        </div>
+    </div>
+    <div class="slide">
+      <img src="/img/suite3.jpg"
+         class="img-slide"
+         </img>
+         <div class="caption">
+            Deluxe eiffel suite
+         </div>
+    </div>
+    </amp-carousel>
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<img src="/img/montmarte.jpg"
+   class="img-slide"
+   </img>
+   <div class="caption">
+     <p style="text-align: left;text-transform:uppercase;">
+        {{ p6s1 | safe }}
+     </p>
+     <p style="text-align: left;text-transform:uppercase;">
+        {{ p6s2 | safe }}
+     </p>
+     <p>&nbsp;</p>
+   </div>
+
+<p>&nbsp;</p>
+
+
+<img src="/img/cya.jpg"
+   </img>
+ <p style="text-align: center;text-transform:uppercase;">
+    {{ cyasoon | safe }}
+ </p>
+ <p style="text-align: center;text-transform:uppercase;">
+    {{ love | safe }}
+ </p>
+
+
+<p>&nbsp;</p>
+
+
+
+
+
 
 {{ content | safe }}

@@ -116,21 +116,6 @@
     </header>
 
     <main>
-      
-
-
-      <amp-lightbox id="my-lightbox"
-        layout="nodisplay">
-        <div class="lightbox"
-        on="tap:my-lightbox.close"
-        role="button"
-        tabindex="0">
-        <h1>Link copied to clipboard</h1>
-        </div>
-      </amp-lightbox>
-      <button on="tap:my-lightbox">
-        Open lightbox
-      </button>
 
 
       <article>
@@ -144,9 +129,41 @@
       </article>
     </main>
 
-    <footer>
-      {% include 'components/language-selector.njk' %}
-      <a href="/about/">{{ metadata.author.name }}</a>
+
+    <footer style="text-align: left;" class="footer" id="mastfooter" role="contentinfo">
+        {% include 'components/language-selector.njk' %}
+        __________________________________________________
+        <div>
+            <p>
+                <strong>Keep in touch</strong>
+                <a class="link" href="https://www.instagram.com/hotelparticuliermontmartre/" title="Instagram" rel="me" target="_blank">Instagram</a>
+                <a class="link" href="https://www.facebook.com/hotelparticuliermontmartre" title="Facebook" rel="me" target="_blank">Facebook</a>
+                <a class="link" href="https://twitter.com/TresParticulier" title="Twitter" rel="me" target="_blank">Twitter</a>
+            </p>
+
+            <div>
+                <div>
+                    <p>
+                        23, avenue Junot, Pavillon D<br>
+                        75018 Paris                    </p>
+                </div>
+                <div>
+                    <p>
+                        01 53 41 81 40<br>
+                        Mail : <a class="link link-email" href="mailto:reception@hotel-particulier-montmartre.com" title="Contact email">reception@hotel-particulier-montmartre.com</a>
+                    </p>
+                </div>
+            </div>
+            <div>
+                <di>
+                    <p>
+                        <a class="link" href="https://www.hotelparticulier.com/en/terms-conditions-faq.html">F.A.Q. Terms &amp; Conditions - Legal notice</a><br><br>
+                        © Hôtel Particulier Montmartre 2018. All rights reserved
+                    </p>
+                </div>
+            </div>
+
+        </div>
     </footer>
 
     <!-- Current page: {{ page.url | url }} -->

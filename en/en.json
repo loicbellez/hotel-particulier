@@ -2,6 +2,60 @@
   "dir": "ltr",
   "lang": "en",
   "locale": "en",
-  "fist_text" :"something",
-  "second_text" :"hello world"
+
+  "p1h":"Parisian Hedonism",
+  "p1s1":"Welcome to the Hotel Particulier Montmartre,",
+  "p1s2":"the most private and smallest Parisian hotels",
+  "p1s3":"! A boutique hotel in Paris, this haven of greenery that used to belong to the Hermes family and became a Private House allows you to discover",
+  "p1s4":"the largest hotel garden in the capital, part of the last vestiges of the Maquis de Montmartre",
+  "p1s5":"Over time this family house that was once called “une Folie” has established itself as\n",
+  "p1s6":"a reference in Paris",
+  "p1s7":"Whether ",
+  "p1s8":"for a Drink, for a dinner or for a night",
+  "p1s9":" the Hôtel Particulier awaits you in Montmartre in what many people rightly call “a countryside in the heart of Paris”",
+
+  "p2s1":"Oscar Comtet, the director,",
+  "p2s2":"runs it with vitality, always wishing to revisit the place so that it stays ephemeral yet timeless.A place full of history,",
+  "p2s3":"where thousands stories can be told, but many of which remain to be created.",
+  "p2s4":"The Hotel Particulier Montmartre intends to be an establishment welcoming\nepicureans, ",
+  "p2s5":"where our guests are able to enjoy a variety of offers throughout season, from breakfast to dinner, including brunch in ",
+  "p2s6":"our restaurant Le Grand Salon",
+  "p2s7":" whilst also keeping in mind the events and the ",
+  "p2s8":"sophisticated cocktails at the Très Particulier",
+  "p2s9":", all indoors and on the terraces.",
+
+  "p3":"The Hôtel Particulier Montmartre, haven of greenery nestled between the famous Avenue Junot and the Rue Lepic, is the last relic from the scrubland of Montmartre, historical treasure of the Butte.",
+  "restaurant": "Restaurant",
+  "bar": "Bar",
+
+  "p4s1":"The Grand Salon",
+  "p4s2":", Hotel Particulier Montmartre restaurant, and its ",
+  "p4s3":"chef Gabriele Faiella",
+  "p4s4":"invite you for a unique experience at any time of the day, ",
+  "p4s5":"from breakfast to dinner",
+  "p4s6":"Discover",
+
+  "p5s1":"Hidden away in a green haven, ",
+  "p5s2":"the Très Particulier is a bar for initiates with sophisticated cocktails",
+  "p5s3":". To see the night fall, between golden ornaments and nature.Piano bar every Wednesday night.",
+  "p5s4":"Discover",
+
+  "p6s1":"Our district",
+  "p6s2":"Sacré-Coeur Montmartre Paris Paris Paris Paris Paris Mon Amour",
+
+  "cyasoon":"see you soon",
+  "love":"love"
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
