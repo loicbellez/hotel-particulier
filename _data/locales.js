@@ -1,14 +1,10 @@
 module.exports = [
   {
-    label: 'English',
+    label: 'en',
     code: 'en'
   },
   {
-    label: 'Eesti',
-    code: 'est'
-  },
-  {
-    label: 'Francais',
+    label: 'fr',
     code: 'fr'
   }
 ];

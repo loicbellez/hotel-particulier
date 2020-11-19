@@ -182,10 +182,8 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("nav_en", function(collectionApi) {
-    return collectionApi.getFilteredByGlob(["en/about/*.md", "en/index.njk"]);
+    return collectionApi.getFilteredByGlob(["en/about/*.md", "en/index.njk","en/hotel/index.njk"]);
   });
-
-
 
 
   eleventyConfig.addCollection("posts_fr", function(collectionApi) {
@@ -193,17 +191,9 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("nav_fr", function(collectionApi) {
-    return collectionApi.getFilteredByGlob(["fr/about/*.md", "fr/index.njk"]);
+    return collectionApi.getFilteredByGlob(["fr/about/*.md", "fr/index.njk","fr/hotel/index.njk"]);
   });
 
-  eleventyConfig.addCollection("posts_est", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("est/posts/*.md");
-  });
-
-  eleventyConfig.addCollection("nav_est", function(collectionApi) {
-    return collectionApi.getFilteredByGlob(["est/about/*.md", "est/index.njk"]);
-  });
-  ////
 
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
 

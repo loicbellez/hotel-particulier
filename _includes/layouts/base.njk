@@ -71,10 +71,12 @@
   </head>
   <body>
     <header>
+      # 01 53 41 81 40   {% include 'components/language-selector.njk' %}
       <nav>
         <div id="nav">
           <h1><a href="{{ '/' | url }}" title="Homepage">{{ metadata.title }}</a></h1>
           {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+          {#add collections for nav here#}
 
           {% if lang == 'fr' %}
 
@@ -82,13 +84,7 @@
 
           {% else %}
 
-              {% if lang == 'est' %}
-                  {% set collections = collections.nav_est %}
-
-              {% else %}
-                  {% set collections = collections.nav_en %}
-
-              {% endif %}
+              {% set collections = collections.nav_en %}
 
           {% endif %}
 
@@ -155,7 +151,7 @@
                 </div>
             </div>
             <div>
-                <di>
+                <div>
                     <p>
                         <a class="link" href="https://www.hotelparticulier.com/en/terms-conditions-faq.html">F.A.Q. Terms &amp; Conditions - Legal notice</a><br><br>
                         © Hôtel Particulier Montmartre 2018. All rights reserved
