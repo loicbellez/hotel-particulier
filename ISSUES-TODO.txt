@@ -1,0 +1,3 @@
+check links,
+missing 2 carousels on main page,
+icons - svg
