@@ -182,7 +182,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("nav_en", function(collectionApi) {
-    return collectionApi.getFilteredByGlob(["en/about/*.md", "en/index.njk","en/hotel/index.njk"]);
+    return collectionApi.getFilteredByGlob([ "en/index.njk","en/five-suites/index.njk"]);
   });
 
 
@@ -191,7 +191,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("nav_fr", function(collectionApi) {
-    return collectionApi.getFilteredByGlob(["fr/about/*.md", "fr/index.njk","fr/hotel/index.njk"]);
+    return collectionApi.getFilteredByGlob(["fr/index.njk","fr/five-suites/index.njk"]);
   });
 
 
