@@ -109,7 +109,56 @@
 
   "eiffel":"Eiffel",
   "delp1s1":"Here is the nest of the hotel. You access this Suite by a private staircase, to discover a loft with a large glass roof offering a beautiful view on the city of Paris and The Eiffel Tower.",
-  "delp1s2":"Large portraits of two young women signed by Natacha Lesueur will watch you from behind the natural curtain of their hair. Hidden in the Suite, Barbie's eyes painted on the ceiling reinforce the feeling of being in a shelter under modern angels' guard. In the living room a bathtub thrones like a furniture of Napoleon III. It invites you to relax in it for hours, bathing in the sun. Our most discrete guests will enjoy the separated bathroom, where the shower is decorated with \nnatural and coppered ceramics. This is a space dedicated to cocooning, in perfect agreement with the Suite. Designed by Natacha Lesueur."
+  "delp1s2":"Large portraits of two young women signed by Natacha Lesueur will watch you from behind the natural curtain of their hair. Hidden in the Suite, Barbie's eyes painted on the ceiling reinforce the feeling of being in a shelter under modern angels' guard. In the living room a bathtub thrones like a furniture of Napoleon III. It invites you to relax in it for hours, bathing in the sun. Our most discrete guests will enjoy the separated bathroom, where the shower is decorated with \nnatural and coppered ceramics. This is a space dedicated to cocooning, in perfect agreement with the Suite. Designed by Natacha Lesueur.",
+
+  "restp1s1":"Le Grand Salon,",
+  "restp1s2":" Hotel Particulier Montmartre restaurant,",
+  "restp1s3":" and its Chef Gabriele Faiella",
+  "restp1s4":", invite you for a culinary experience in an enchanting setting, at any time of the day, from breakfast to dinner, including tea-time, lunch, cocktails and brunch.",
+
+  "restp2h1":"A digression in time ",
+  "restp2s1":"A bistronomic restaurant and a cocktail bar in a dreamy context.",
+  "information":"information",
+  "restp2s2":"Due to the latest government measures, we are informing our customers that our restaurant, Le Grand Salon, will unfortunately be closed for the duration of the lockdown.",
+  "restp2s3":"Only Suite reservations are available during this period including breakfast service  in our Le Grand Salon space, a bar service directly served in your Suite (from Tuesday to Saturday from 6 P.M to 1 A.M) and the ability to order dinner through home delivery services.",
+  "restp2s4":"“Champagne in Suite” offer currently available with a free bottle of Champagne Veuve Clicquot Carte Jaune for each Suite reservation.",
+  "restp2s5":"Stay Safe in our Private House ! ",
+
+  "restp3s1":"The large lounge welcomes you every day for ",
+  "restp3s2":"breakfast",
+  "restp3s3":"(starting at 8:30 AM),",
+  "restp3s4":"lunch",
+  "restp3s5":"tea-time",
+  "restp3s6":"cocktails",
+  "restp3s7":"(starting at 6 PM) and from Tuesday till Sunday for diner (starting at 7PM).On Sundays, the Hotel Particulier Montmartre opens its doors for",
+  "restp3s8":"brunches",
+  "restp3s9":" at 12PM.",
+
+  "restp4s1":"Our restaurant and our cocktail bar make full use of",
+  "restp4s2":"the largest hotel garden in the French capital",
+  "restp4s3":"when the warm weather arrives.",
+
+
+  "restp5s1":"A valet parking service is available at the entrance (from Tuesday to Saturday, from 7PM to 2:00AM).",
+
+  "restp5s2":"Discover our menus",
+
+  "resth1":"A living area ready to satisfy all your unexpected desires.",
+
+  "smenu":"SELECT YOUR MENU<br>BREAKFAST<br>8.30AM - 11AM<br><br>MONDAY/SATURDAY<br><br>LUNCH<br>12PM - 2:30PM<br><br>MONDAY/SATURDAY<br><br>THE DINNER<br>6.00PM - 9.00PM<br><br>EVERY DAY<br><br>TEA TIME<br>3PM - 6PM<br><br>EVERYDAY<br><br>BRUNCH<br>12PM - 4PM<br><br>SUNDAY",
+
+  "breakfastmenu":"8.30AM - 11AM<br><br>BREAKFAST<br><br><br><br>20. per person<br>25. with eggs<br>From 8.30am to 11am, from Monday to Saturday<br><br>–<br><br>FRESH FRUIT JUICE<br>(Orange, Grapefruit or Lemon)<br>Or Detox juice<br><br>HOT BEVERAGES<br>(Coffee, tea «Mariage Frères», hot chocolate)<br><br>BREAD, BUTTER, JAM, VIENNOISERIES<br><br>FRESH FRUITS SALAD<br><br>COTTAGE CHEESE<br>With :<br>Sugar<br>Corn flakes<br>Muesli<br><br>–<br>EGGS<br>(Served by 2)<br>Boiled eggs<br>Fried eggs<br>Scrambled eggs<br>Poached eggs<br>Omelette<br>Bacon<br><br>–<br>VIENNOISERIE ONLY 5.",
+
+  "lunchmenu":"12PM - 2:30PM<br><br>LUNCH<br><br>From 12pm to 4:30pm, Monday to Saturday<br><br>At the Hôtel Particulier Montmartre, we work with fresh produce, so the menu may change depending on seasonal produce. Grand Salon menu by our chef: Gabriele Faiella<br> WEEK LUNCH <br><br>(Monday to Friday)<br><br>STARTER + MAIN COURSE  34.<br><br>MAIN COURSE + DESSERT  34.<br><br>STARTER + MAIN COURSE + DESSERT  38.<br><br>Among several proposals for starters, main courses (fish / meat / salad) and desserts from our chef.<br><br><br><br> ON SATURDAYS <br><br><br><br> STARTERS<br><br><br><br> Sea bream ceviche   19.<br>The classic of our Private House <br><br>Crispy Rolls with vegetables   12.<br>Pea sauce<br><br>Burratina   16.<br>Multicolored tomatoes carpaccio, olive oil with basil<br><br>Salted Mini Croissants   16.<br>Straciatella di bufala, olives oil and basil<br><br>Iberian Acorn-fed Ham (Spain)  42.<br>Bruschetta tomato jam, pepper<br><br>Cécina (Spain)  22.<br><br><br><br> DISHES<br><br><br><br> Roasted doll  24.<br>Lemon mayonnaise, fried sweet potato<br><br>Ribs  22.<br>Barbecue sauce, roasted potatoes<br><br>Avocado salad  19.<br>Powder miso,<br>fresh dill cream, pomegranate, fried leeks <br><br>Parmesan Risotto   19.<br>Supplement summer fresh truffe  (2grams): 10.<br><br>– <br><br>DESSERTS<br><br>Cheese plate from our Chef  14.<br>Crémeux à la truffe, Fourme d’Ambert «Village», Tomme de Savoie IGP et pâte de coing<br><br>Strawberry tart  12.<br><br>Seasonal fruit salad  10.",
+
+  "dinnermenu":"6.00PM - 9.00PM<br><br>THE DINNER<br><br><br><br>–<br><br>Assiettes selection menu for Sundays dinners. <br><br>–<br><br>Grand Salon autumn-winter menu by our chef Gabriele Faiella<br><br>Service in the cocktail bar area Le Très Particulier from Tuesday to Sunday<br><br>–<br><br>APERITIVO<br><br>Served from 4pm to 6pm<br><br>Smoked Guacamole  16.<br>Mango, avocado, wheat tortillas<br><br>Salted Mini Croissants 16.<br>Straciatella di bufala,summer truffle, olive oil with basil<br><br>Iberian Acorn-fed Ham (Spain)  42.<br>Bruschetta tomato jam, pepper<br><br>Cécina<br>(Spain)  22.<br><br>–<br><br>STARTERS <br><br><br><br>Gyozas – Signature  22.<br>Confit veal, sesame sauce (5 Pieces)<br><br>Sea bass ceviche – Signature  22.<br>The classic of our Maison Particulière, raspberry sauce and truffle oil<br><br>Aguachile Gambas Carabineros  28.<br>Winter melon & imperial caviar from Maison Nordique (Sologne) <br><br>Beef tartare  22. <br>Parmesan, candied tomatoes & summer truffle<br><br>–<br><br>DISHES<br><br>Beef tenderloin – organic, origin France 38.<br>Three breadcrumbs, flavored with chamomile, homemade<br>barbecue<br>sauce<br><br>Beef rib – organic, origin France 95.<br>To share for two people, race Salers, Auvergne<br><br>Veal cheek – origin France 32.<br>Sauteed rice with saffron, chard confit<br><br>Monkfish in crispy porcini mushrooms 36.<br>Pan-fried shiitake & chanterelle mushrooms, creamy polenta<br><br>Stuffed squid 39.<br>Mama stuffing, pine nuts<br><br>Risotto 39.<br>Parmesan48 months, balsamic reduction, fresh summer truffle<br><br>Gnocchis HomeMade  34.<br>Oysters, cauliflower cream, imperial caviar from Maison Nordique (Sologne)<br><br>Zucchini spaghetti with pesto 24.<br>Goji berries & mint<br><br>–<br><br>TRIMS<br><br>Carrots with honey and cardamom 8.<br><br>Manchego potato croquettes 11.<br><br>Whole cauliflower with homemade virgin sauce 14.<br><br><br><br>–<br><br>DESSERTS<br><br>Cheese plate from our Chef  14.<br>Crémeux à la truffe, Fourme d’Ambert «Village», Tomme de Savoie IGP et pâte de coing<br><br>Mille-Feuille  14.<br>Light cream, smoked amaretto coulis, salted butter<br><br>White chocolate soufflé 14.<br>Basil, orange, rose water & yuzu sorbet<br><br>Citrus pavlova 14.<br>Bronte<br>pistachio mousse<br><br>Choupettes de Chouchou  14.<br>3 chouquettes with whipped cream from the famous Montmartre pastry shop",
+
+  "teamenu":"3PM - 6PM<br><br>TEA TIME<br><br>Hotel Particulier Montmartre welcomes you indoors for a very British tea-time.<br><br>Monday to Friday from 3pm to 6pm<br>Saturday and Sunday from 4pm<br><br><br><br>Tea-Time Champagne offer <br><br><br><br>Coupe de Veuve Clicquot “Carte Jaune”<br><br>coming with  two Choupette de Chouchou<br><br>Chouquettes with whipped cream from the famous Montmartre pastry shop<br><br>18.<br><br><br><br>Coupe de Veuve Clicquot “Grande Dame”<br><br>coming with  two Choupette de Chouchou<br><br>Chouquettes with whipped cream from the famous <br>Montmartre pastry shop<br><br>41.<br><br>",
+
+  "brunchmenu":"12PM - 4PM<br><br>BRUNCH<br><br>Service on the terraces in our gardens when the weather is on our side.<br><br>55. per person<br><br>On Sundays only, Two services : 12pm & 2.30pm–<br>JUICES<br><br>Fresh juice<br><br>STARTER<br><br>SMOKED GUACAMOLE<br><br>TOMATO GASPACCO<br><br>RICOTTA QUENELLES & PINE NUTS<br><br>–<br>A DISH OF YOUR CHOICE<br><br>BETWEEN 3 DISHES CHANGING EVERY WEEK <br><br>(MEAT / FISH / SALAD)<br><br>–<br><br>A DESSERT OF YOUR CHOICE<br><br>FRUITS SALAD ALOE VERA <br><br>ALMOND CRUMBLE  & ICE CREAM<br><br>COMING WITH PASTRIES, BAKER’S BASKET, JAMS, HOT BEVERAGE<br><br><br><br>KIDS BRUNCH<br><br>.35<br><br>HOT CHOCOLATE<br><br>CHOCOLATE BREAD<br><br>ORANGE JUICE<br><br>PASTA WITH TOMATOES AND BASIL<br><br>SCOOP OF ICE CREAM",
+
+  "reservation":"reservation"
+
 
 
 }
