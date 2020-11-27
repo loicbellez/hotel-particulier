@@ -1,0 +1,252 @@
+---
+layout: layouts/base.njk
+---
+
+<amp-carousel type="slides" layout="responsive" type="slides" autoplay delay="10000" width="1920" height="900" id="eventscar1">
+  <div class="slide">
+    <img src="/img/eventscar1.jpg" class="img-slide">
+  </div>
+  <div class="slide">
+    <img src="/img/eventscar2.jpg" class="img-slide">
+    <div>
+      <p>{{eventscar1s1|safe}}<br>
+        {{eventscar1s2|safe}}</p>
+        <br>
+        <a href="#contact-form" style="text-transform:uppercase; text-decoration: underline;">{{contactform|safe}}</a>
+    </div>
+  </div>
+</amp-carousel>
+
+<p>&nbsp;</p>
+
+<h2 style="text-transform:uppercase;">{{eventsp1h1|safe}}</h2>
+<p>{{eventsp1s1|safe}}
+  <strong>{{eventsp1s2|safe}}</strong>
+  {{eventsp1s3|safe}}
+  <strong>{{eventsp1s4|safe}}</strong>
+  {{eventsp1s5|safe}}
+</p>
+
+<p>&nbsp;</p>
+
+<amp-carousel type="slides" layout="responsive" type="slides" autoplay delay="10000" width="1920" height="900" id="eventscar1">
+  <div class="slide">
+    <img src="/img/eventscar2-1.jpg" class="img-slide">
+  </div>
+  <div class="slide">
+    <img src="/img/eventscar2-2.jpg" class="img-slide">
+  </div>
+</amp-carousel>
+
+<p>&nbsp;</p>
+
+<img src="/img/eventsimg1.jpg">
+
+<p>&nbsp;</p>
+
+<amp-vimeo
+  data-videoid="340895907"
+  layout="responsive"
+  width="500"
+  height="281"
+></amp-vimeo>
+
+<p>&nbsp;</p>
+
+<p>
+  <strong>{{eventsp2s1|safe}}</strong>
+   {{eventsp2s2|safe}}
+ </p>
+ <p>{{eventsp2s3|safe}}
+   <strong>{{eventsp2s4|safe}}</strong>
+   {{eventsp2s5|safe}}
+   <strong>{{eventsp2s6|safe}}</strong>.</p>
+   <strong>{{eventsp2s7|safe}}<br></strong>
+
+<a href="/img/{{lang|safe}}-brochure.pdf" target="_blank"
+ style="text-transform:uppercase; text-decoration: underline;">{{eventsbrochure}}</a>
+
+<p>&nbsp;</p>
+
+<img src="/img/eventsimg2.jpg">
+
+<p>&nbsp;</p>
+
+<div id="contact-form">
+  <h3 style="text-transform:uppercase;">{{contactform|safe}}</h3>
+  <p style="text-transform:uppercase;">
+    {{cf1|safe}}<br>
+    <strong></strong>
+  </p>
+  <p>&nbsp;</p>
+  <div role="form" >
+    <form action="/en/events.html#wpcf7-f58-p549-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+    <div id="">
+      <div class="form__field form__field--date">
+        <label  style="text-transform:uppercase;" for="form-contact--date" class="form__label">{{ddate}} <sup>*</sup></label>
+        <span class="wpcf7-form-control-wrap date">
+          <input type="text" name="date" value="" size="40"
+            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form__input form__date"
+            id="form-contact--date" aria-required="true" aria-invalid="false">
+        </span>
+      </div>
+      <div class="form__field form__field--type">
+        <label  style="text-transform:uppercase;"for="form-contact--type" class="form__label">{{cf3}} <sup>*</sup></label>
+        <span class="wpcf7-form-control-wrap type-evenement">
+          <select name="type-evenement" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required form__input form__select"
+           id="form-contact--type" aria-required="true" aria-invalid="false">
+           <option value="Seminar">{{cf4}}</option>
+           <option value="Board of Directors">{{cf5}}</option>
+           <option value="Workshop">{{cf6}}</option>
+           <option value="Reception">{{cf7}}</option>
+           <option value="Cocktail">{{cf8}}</option>
+           <option value="Dinner or private lunch">{{cf9}}</option>
+           <option value="Product launch">{{cf10}}</option>
+           <option value="Press conference">{{cf11}}</option>
+           <option value="Shooting">{{cf12}}</option>
+           <option value="Film shoot">{{cf13}}</option>
+           <option value="Afterwork">{{cf14}}</option>
+           <option value="Private reception (birthday, wedding)">{{cf15}}</option>
+           <option value="Other">{{cf16}}</option>
+         </select>
+       </span>
+      </div>
+      <div class="form__field form__field--hours">
+        <label  style="text-transform:uppercase;" for="form-contact--horaires" class="form__label">{{cf17}}<sup>*</sup></label>
+        <span class="wpcf7-form-control-wrap horaires">
+          <select name="horaires" class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required form__input form__select"
+           id="form-contact--horaires" aria-required="true" aria-invalid="false">
+           <option value="9:00 AM - 5:00 PM">9:00 AM - 5:00 PM</option>
+           <option value="12:00 PM - 4:30 PM">12:00 PM - 4:30 PM</option>
+           <option value="7:00 PM - 00:00 AM">7:00 PM - 00:00 AM</option>
+           <option value="7:00 PM - 02:00 AM">7:00 PM - 02:00 AM</option>
+         </select>
+        </span>
+      </div>
+      <div class="form__field form__field--people">
+        <label  style="text-transform:uppercase;" for="form-contact--participants" class="form__label">{{cf18}} <sup>*</sup></label>
+        <span class="wpcf7-form-control-wrap participants">
+          <input type="number" name="participants" value=""
+          class="wpcf7-form-control wpcf7-number wpcf7-validates-as-required wpcf7-validates-as-number form__input form__number"
+           id="form-contact--participants" min="1" aria-required="true" aria-invalid="false" placeholder="5">
+        </span>
+      </div>
+      <div class="form__field form__field--gender">
+        <label  style="text-transform:uppercase;" class="form__label">{{cf19}}<sup>*</sup></label>
+        <span class="wpcf7-form-control-wrap civilite">
+          <span class="wpcf7-form-control wpcf7-radio form__radio">
+            <span class="wpcf7-list-item first">
+              <label  style="text-transform:uppercase;">
+                <input type="radio" name="civilite" value="M" checked="checked">
+                <span class="wpcf7-list-item-label">M</span>
+              </label>
+            </span>
+            <span class="wpcf7-list-item last">
+              <label  style="text-transform:uppercase;">
+                <input type="radio" name="civilite" value="Mme">
+                <span class="wpcf7-list-item-label">Mme</span>
+              </label>
+            </span>
+          </span>
+        </span>
+      </div>
+      <div class="form__field form__field--name">
+        <label  style="text-transform:uppercase;"for="form-contact--nom" class="form__label">{{cf20}} <sup>*</sup></label>
+        <span class="wpcf7-form-control-wrap nom">
+          <input type="text" name="nom" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form__input"
+           id="form-contact--nom" aria-required="true" aria-invalid="false" placeholder="name">
+        </span>
+      </div>
+      <div class="form__field form__field--firstname">
+        <label  style="text-transform:uppercase;" for="form-contact--prenom" class="form__label">{{cf21}} <sup>*</sup></label>
+        <span class="wpcf7-form-control-wrap prenom">
+          <input type="text" name="prenom" value="" size="40"
+           class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form__input"
+           id="form-contact--prenom" aria-required="true" aria-invalid="false" placeholder="firstname">
+        </span>
+      </div>
+      <div class="form__field form__field--email">
+        <label  style="text-transform:uppercase;" for="form-contact--email" class="form__label">{{cf22}} <sup>*</sup></label>
+        <span class="wpcf7-form-control-wrap email">
+          <input type="email" name="email" value="" size="40"
+           class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email form__input form__mail"
+           id="form-contact--email" aria-required="true" aria-invalid="false" placeholder="name.firstname@mail.com">
+        </span>
+      </div>
+      <div class="form__field form__field--phone">
+        <label  style="text-transform:uppercase;" for="form-contact--phone" class="form__label">{{cf23}} <sup>*</sup></label>
+        <span class="wpcf7-form-control-wrap telephone"><input type="tel" name="telephone" value="" size="40"
+           class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel form__input form__phone"
+            id="form-contact--phone" aria-required="true" aria-invalid="false" placeholder="01 00 00 00 00">
+        </span>
+      </div>
+      <div class="form__field form__field--address">
+        <label  style="text-transform:uppercase;" for="form-contact--address" class="form__label">{{cf24}}<sup>*</sup></label>
+        <span class="wpcf7-form-control-wrap adresse">
+          <input type="text" name="adresse" value="" size="40" class="wpcf7-form-control wpcf7-text form__input form__address"
+           id="form-contact--address" aria-invalid="false" placeholder="23, avenue Junot, 75018">
+        </span>
+      </div>
+      <div class="form__field form__field--societe">
+        <label style="text-transform:uppercase;"for="form-contact--societe" class="form__label">{{cf25}}</label>
+        <span class="wpcf7-form-control-wrap societe">
+          <input type="text" name="societe" value="" size="40" class="wpcf7-form-control wpcf7-text form__input"
+           id="form-contact--societe" aria-invalid="false" placeholder="Firm">
+        </span>
+      </div>
+      <div class="form__field form__field--message">
+        <label style="text-transform:uppercase;" class="form__label">{{cf26}} </label>
+          <span class="wpcf7-form-control-wrap message">
+            <textarea name="message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea form__input form__textarea"
+              aria-invalid="false" placeholder="Enter your message here.">
+            </textarea>
+          </span>
+
+      </div>
+      <div class="form__field form__field--privacy checkbox">
+      <span class="wpcf7-form-control-wrap pricavy-acceptance">
+        <span class="wpcf7-form-control wpcf7-acceptance">
+          <span class="wpcf7-list-item">
+            <label>
+              <input type="checkbox" name="pricavy-acceptance" value="1" aria-invalid="false">
+              <span class="wpcf7-list-item-label">
+                {{cf27}}
+                <a href="/{{lang}}/terms-conditions-faq/"
+                 target="_blank" rel="nofollow">{{cf28}}
+               </a> {{cf29}}
+                <mark>*</mark>
+              </span>
+            </label>
+          </span>
+        </span>
+      </span>
+      </div>
+      <div class="form__field form__field--submit">
+        <button type="submit" class="form__submit h2 link link-letters" aria-label="Send">
+          {{cf30}}
+        </button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+
+<p>&nbsp;</p>
+
+<img src="/img/eventsimg3.jpg">
+
+<p>&nbsp;</p>
+
+<img src="/img/eventsimg4.jpg">
+
+<p>&nbsp;</p>
+
+<img src="/img/eventsimg5.jpg">
+
+<h2 style="text-transform:uppercase;">{{eventsp3h}}</h2>
+<p style="text-transform:uppercase;">{{eventsp3s}}</p>
+
+<p>&nbsp;</p>
+
+<img src="/img/eventsimg6.jpg">

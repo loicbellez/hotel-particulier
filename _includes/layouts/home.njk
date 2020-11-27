@@ -3,28 +3,42 @@ layout: layouts/base.njk
 templateClass: tmpl-home
 
 ---
-
 <div>
   <amp-carousel type="slides" layout="responsive" type="slides" autoplay delay="10000" width="1920" height="900" id="carousel" >
     <div class="slide">
-      <img src="/img/img1.jpg"
-         class="img-slide"
-         >
+      <img src="/img/homecar1.jpg" class="img-slide">
+
     </div>
     <div class="slide">
-      <img src="/img/img2.jpg"
-         class="img-slide"
-         >
+      <a href="/{{lang}}/bar"> <img src="/img/homecar2.jpg"class="img-slide">
+      <div class="caption">
+        <strong>{{homecarcap1s1|safe}}</strong>
+        &nbsp;{{homecarcap1s2|safe}}
+        <strong>{{homecarcap1s3|safe}}</strong>.
+        {{homecarcap1s4|safe}}
+        <strong style="text-transform:uppercase; text-decoration: underline;">{{discover|safe}}</strong>
+       </div>
+       </a>
     </div>
     <div class="slide">
-      <img src="/img/img3.jpg"
-         class="img-slide"
-         >
+      <a href="/{{lang}}/five-suites">
+      <img src="/img/homecar3.jpg"class="img-slide">
+         <div class="caption">
+            <strong>{{homecarcap2s1|safe}}</strong>  {{homecarcap2s2|safe}}
+            <strong style="text-transform:uppercase; text-decoration: underline;">{{discover|safe}}</strong>
+        </div>
+      </a>
     </div>
     <div class="slide">
-      <img src="/img/img4.jpg"
-         class="img-slide"
-         >
+      <a href="/{{lang}}/restaurant">
+      <img src="/img/homecar4.jpg"class="img-slide">
+         <div class="caption">
+            <strong>{{homecarcap3s1|safe}}</strong>
+              &nbsp;{{homecarcap3s2|safe}}
+              <strong>{{homecarcap3s3|safe}}</strong>
+              <strong style="text-transform:uppercase; text-decoration: underline;">{{discover|safe}}</strong>
+        </div>
+      </a>
     </div>
     </amp-carousel>
 </div>
@@ -47,11 +61,20 @@ templateClass: tmpl-home
 <p>&nbsp;</p>
 
 
-<img src="/img/aimg1.jpg"</img>
+<amp-carousel type="slides" layout="responsive" type="slides" autoplay delay="10000" width="1920" height="900" id="homecar1" >
+  <div class="slide">
+    <img src="/img/homecar01.jpg" class="img-slide">
+  </div>
+  <div class="slide">
+    <img src="/img/homecar02.jpg" class="img-slide">
+  </div>
+</amp-carousel>
+
+<img src="/img/aimg1.jpg">
 <div class="paragraph2">
   <p>
       <strong>{{ p2s1 | safe }}</strong>{{ p2s2 | safe }}
-      <span style="font-size: 1rem;">&nbsp;{{ p2s3 | safe }}</span>
+      <span >&nbsp;{{ p2s3 | safe }}</span>
   </p>
   <p>&nbsp;</p>
   <p>
@@ -63,7 +86,7 @@ templateClass: tmpl-home
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
-<img src="/img/aimg2.jpg"</img>
+<img src="/img/aimg2.jpg">
 <div class="paragraph3">
   <p>
       {{ p3 | safe }}
@@ -74,27 +97,30 @@ templateClass: tmpl-home
 
 
 <h1>{{ restaurant }}</h1>
-<img src="/img/restaurant.jpg"</img>
-<div class="paragraph4">
-  <p>
-      <strong>{{ p4s1 }}</strong>{{ p4s2 }}<strong>{{ p4s3 }}</strong>
-      {{ p4s4 }}<strong>{{ p4s5 }}</strong> {{ p4s6 | safe }}
-  </p>
-  <p>&nbsp;</p>
-</div>
+<a href="/{{lang}}/restaurant">
+  <img src="/img/restaurant.jpg">
+  <div class="paragraph4">
+    <p>
+        <strong>{{ p4s1 }}</strong>{{ p4s2 }}<strong>{{ p4s3 }}</strong>
+        {{ p4s4 }}<strong>{{ p4s5 }}</strong>
+        <strong style="text-transform:uppercase; text-decoration: underline;">{{discover|safe}}</strong>
+    </p>
+  </div>
+</a>
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 
 
 
 <h1>{{ bar }}</h1>
-<img src="/img/bar.jpg"</img>
+<a href="/{{lang}}/bar">
+<img src="/img/bar.jpg">
 <div class="paragraph5">
-  <p>
-      {{ p5s1 }}<strong>{{ p5s2 }}</strong>{{ p5s3 }}&nbsp;
-      {{ p5s4 }}
-  </p>
-  <p>&nbsp;</p>
+  <p>{{ p5s1 }}<strong>{{ p5s2 }}</strong>{{ p5s3 }}&nbsp;</p>
+  <strong style="text-transform:uppercase; text-decoration: underline;">{{discover|safe}}</strong>
 </div>
+</a>
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 
 
@@ -102,28 +128,31 @@ templateClass: tmpl-home
 <div>
   <amp-carousel type="slides" layout="responsive" type="slides" autoplay delay="10000" width="1920" height="900" id="carousel2" >
     <div class="slide">
-      <img src="/img/suite1.jpg"
-         class="img-slide"
-         </img>
-         <div class="caption">
-            Junior suite
-         </div>
-    </div>
-    <div class="slide">
-      <img src="/img/suite2.jpg"
-         class="img-slide"
-         </img>
-         <div class="caption">
-            Superior junior suite
+      <a href="/{{lang}}/five-suites/junior-suite">
+        <img src="/img/suite1.jpg" class="img-slide">
+        <div class="caption">
+           {{hotelp1h1|safe}}
+           <strong style="text-transform:uppercase; text-decoration: underline;">{{discover|safe}}</strong>
         </div>
+      </a>
     </div>
     <div class="slide">
-      <img src="/img/suite3.jpg"
-         class="img-slide"
-         </img>
-         <div class="caption">
-            Deluxe eiffel suite
-         </div>
+      <a href="/{{lang}}/five-suites/superior-junior-suites-2">
+        <img src="/img/suite2.jpg" class="img-slide">
+        <div class="caption">
+          {{hotelp2h1|safe}}
+          <strong style="text-transform:uppercase; text-decoration: underline;">{{discover|safe}}</strong>
+        </div>
+      </a>
+    </div>
+    <div class="slide">
+      <a href="/{{lang}}/five-suites/deluxe-eiffel-suite">
+        <img src="/img/suite3.jpg" class="img-slide">
+        <div class="caption">
+          {{hotelp3h1|safe}}
+          <strong style="text-transform:uppercase; text-decoration: underline;">{{discover|safe}}</strong>
+        </div>
+      </a>
     </div>
     </amp-carousel>
 </div>
@@ -133,7 +162,7 @@ templateClass: tmpl-home
 
 <img src="/img/montmarte.jpg"
    class="img-slide"
-   </img>
+   >
    <div class="caption">
      <p style="text-align: left;text-transform:uppercase;">
         {{ p6s1 | safe }}
@@ -166,7 +195,7 @@ templateClass: tmpl-home
 
 
 <img src="/img/cya.jpg"
-   </img>
+   >
  <p style="text-align: center;text-transform:uppercase;">
     {{ cyasoon | safe }}
  </p>

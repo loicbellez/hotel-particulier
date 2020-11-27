@@ -182,7 +182,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("nav_en", function(collectionApi) {
-    return collectionApi.getFilteredByGlob([ "en/index.njk","en/five-suites/index.njk","en/restaurant/index.njk"]);
+    return collectionApi.getFilteredByGlob([ "en/index.njk","en/five-suites/index.njk","en/restaurant/index.njk","en/contact/index.njk","en/events/index.njk"]);
   });
 
 
@@ -191,7 +191,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("nav_fr", function(collectionApi) {
-    return collectionApi.getFilteredByGlob(["fr/index.njk","fr/five-suites/index.njk","fr/restaurant/index.njk"]);
+    return collectionApi.getFilteredByGlob(["fr/index.njk","fr/five-suites/index.njk","fr/restaurant/index.njk","fr/contact/index.njk","fr/events/index.njk"]);
   });
 
 
